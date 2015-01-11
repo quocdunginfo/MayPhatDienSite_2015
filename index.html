@@ -193,84 +193,151 @@
                         .qd-cell{
                             margin-bottom: 20px;
                         }
-
-                        @media (max-width: 768px) {
+                        .qd-cell > button{
+                            margin-bottom: 20px;
+                            margin-top: 10px;
+                        }
+                        .qd-thumbnail {
+                            height: 200px;/*PC full*/
+                            border: solid 1px silver;
+                            border-radius: 3%;
+                            padding: 5px 5px 5px 5px;
+                        }
+                        /*Mobile*/
+                        @media (min-width: 0px) and (max-width: 599px) {
                             .btn-responsive {
                                 padding:2px 4px;
-                                font-size:80%;
+                                font-size:85%;
                                 line-height: 1;
                                 border-radius:3px;
                             }
+                            .qd-thumbnail {
+                                height: 80px;
+                                
+                            }
                         }
-
-                        @media (min-width: 769px) and (max-width: 992px) {
+                        /*Tablet or not full screen*/
+                        @media (min-width: 600px) and (max-width: 800px) {
                             .btn-responsive {
                                 padding:4px 9px;
                                 font-size:90%;
                                 line-height: 1.2;
                             }
+                            .qd-thumbnail {
+                                height: 180px;
+                                
+                            }
                         }
-
+                        /**/
+                        .qd-thumbnail > img {
+                            max-height: 100%;
+                            max-width: 100%;
+                        }
 
                     </style>
                     <!-- FEATURE PRODUCTS -->
                     <div class="row">
-                        <div class="col-lg-2 col-sm-3 col-xs-4 qd-cell" style="text-align: center">
-                            <div  class="thumbnail img-responsive">
+                        
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
+                                <img src="img/may_cong_nghiep.jpg">
+                            </div>
+                            <div>MODEL: GTR 89765T</div>
+                            <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
+                        </div>
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
+                                <img src="img/may_cong_nghiep_2.jpg">
+                            </div>
+                            <div>MODEL: GTR 89765T</div>
+                            <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
+                        </div>
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
+                                <img src="img/may_cong_nghiep_3.jpg">
+                            </div>
+                            <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
+                        </div>
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
                                 <img src="img/may_cong_nghiep.jpg">
                             </div>
                             <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
                         </div>
-                        <div class="col-lg-2 col-sm-3 col-xs-4 qd-cell" style="text-align: center">
-                            <div  class="thumbnail img-responsive">
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
                                 <img src="img/may_cong_nghiep.jpg">
                             </div>
                             <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
                         </div>
-                        <div class="col-lg-2 col-sm-3 col-xs-4 qd-cell" style="text-align: center">
-                            <div  class="thumbnail img-responsive">
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
                                 <img src="img/may_cong_nghiep_2.jpg">
                             </div>
                             <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
                         </div>
-                        <div class="col-lg-2 col-sm-3 col-xs-4 qd-cell" style="text-align: center">
-                            <div  class="thumbnail img-responsive">
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
+                                <img src="img/may_cong_nghiep_3.jpg">
+                            </div>
+                            <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
+                        </div>
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
                                 <img src="img/may_cong_nghiep.jpg">
                             </div>
                             <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
                         </div>
-                        <div class="col-lg-2 col-sm-3 col-xs-4 qd-cell" style="text-align: center">
-                            <div  class="thumbnail img-responsive">
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
                                 <img src="img/may_cong_nghiep.jpg">
                             </div>
                             <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
                         </div>
-                        <div class="col-lg-2 col-sm-3 col-xs-4 qd-cell" style="text-align: center">
-                            <div  class="thumbnail img-responsive">
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
                                 <img src="img/may_cong_nghiep_2.jpg">
                             </div>
                             <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
                         </div>
-                        <div class="col-lg-2 col-sm-3 col-xs-4 qd-cell" style="text-align: center">
-                            <div  class="thumbnail img-responsive">
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
+                                <img src="img/may_cong_nghiep_3.jpg">
+                            </div>
+                            <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
+                        </div>
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                            
+                            <div  class="qd-thumbnail qd-img-wrapper">
                                 <img src="img/may_cong_nghiep.jpg">
                             </div>
                             <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
-                        </div>
-                        <div class="col-lg-2 col-sm-3 col-xs-4 qd-cell" style="text-align: center">
-                            <div  class="thumbnail img-responsive">
-                                <img src="img/may_cong_nghiep.jpg">
-                            </div>
-                            <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
-                        </div>
-                        <div class="col-lg-2 col-sm-3 col-xs-4 qd-cell" style="text-align: center">
-                            <div  class="thumbnail img-responsive">
-                                <img src="img/may_cong_nghiep_2.jpg">
-                            </div>
-                            <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
+                            
                         </div>
                         <!--
-                        <div class="col-lg-2 col-sm-3 col-xs-4">
+                        <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell">
                             <a href="#">
                                 <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
                             </a>
