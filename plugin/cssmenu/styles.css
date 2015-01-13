@@ -1,4 +1,4 @@
-#cssmenu {
+﻿#cssmenu {
   position: relative;
   height: 44px;
   background: white;
@@ -161,7 +161,7 @@
   padding: 10px 20px;
   font-size: 12px;
   color: #9ea2a5;
-  background: #ffffff;
+  background: #ffffff; /*BG của từng level 1 sub*/
   -webkit-transition: all .35s ease;
   -moz-transition: all .35s ease;
   -ms-transition: all .35s ease;
@@ -172,7 +172,7 @@
   text-align: right;
 }
 #cssmenu ul ul li:hover > a {
-  /*background: #f2f2f2;*/ /*Background color menu bar*/
+  /*background: white;*/ /*Background color khi hover menu item lv1 sub*/
   background: white; /*Background color menu bar*/
   color: #8c9195;
 }
