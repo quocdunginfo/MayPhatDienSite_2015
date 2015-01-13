@@ -36,6 +36,7 @@
   text-align: left;
 }
 #cssmenu > ul > li {
+  float: right; /*Chỉnh menu canh về bên phải*/
   display: inline-block;
   position: relative;
   margin: 0;
@@ -256,7 +257,7 @@
   }
   #cssmenu li,
   #cssmenu > ul > li {
-    display: none;
+	display: none;
   }
   #cssmenu ul ul,
   #cssmenu ul ul ul,

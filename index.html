@@ -231,7 +231,7 @@
                     }
 
                     /*Mobile*/
-                    @media (min-width: 0px) and (max-width: 599px) {
+                    @media (min-width: 0px) and (max-width: 399px) {
                         .btn-responsive {
                             padding: 2px 4px;
                             font-size: 85%;
@@ -240,21 +240,25 @@
                         }
 
                         .qd-thumbnail {
-                            height: 80px;
-
+                            height: 90px;
+                        }
+                        .qd-product-title{
+                            font-size: 60%;
                         }
                     }
 
                     /*Tablet or not full screen*/
-                    @media (min-width: 600px) and (max-width: 800px) {
+                    @media (min-width: 400px) and (max-width: 800px) {
                         .btn-responsive {
                             padding: 4px 9px;
                             font-size: 90%;
                             line-height: 1.2;
                         }
-
+                        .qd-product-title{
+                            font-size: 80%;
+                        }
                         .qd-thumbnail {
-                            height: 180px;
+                            height: 140px;
 
                         }
                     }
@@ -271,19 +275,21 @@
 
                     <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
 
-                        <div class="qd-thumbnail qd-img-wrapper">
+                        <div class="qd-thumbnail qd-img-wrapper" style="position: relative; text-align: center">
+                            <div class="qd-product-title">MODEL: GTR 89765T</div>
                             <img src="img/may_cong_nghiep.jpg">
                         </div>
-                        <div>MODEL: GTR 89765T</div>
+
                         <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
 
                     </div>
                     <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
 
                         <div class="qd-thumbnail qd-img-wrapper">
+                            <div class="qd-product-title">MODEL: GTR 89765T</div>
                             <img src="img/may_cong_nghiep_2.jpg">
                         </div>
-                        <div>MODEL: GTR 89765T</div>
+
                         <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
 
                     </div>
