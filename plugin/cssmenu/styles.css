@@ -1,7 +1,7 @@
 #cssmenu {
   position: relative;
   height: 44px;
-  background: #2b2f3a;
+  background: white;
   width: auto;
 }
 #cssmenu ul {
@@ -13,7 +13,7 @@
 #cssmenu > ul {
   position: relative;
   display: block;
-  background: #2b2f3a;
+  background: white;/*menu bar bg color*/
   width: 100%;
   z-index: 500;
 }
@@ -65,7 +65,7 @@
   padding-right: 32px;
 }
 #cssmenu > ul > li:hover > a {
-  color: #ffffff;
+  color: black; /*Menu item level 0 hover color*/
 }
 #cssmenu li.has-sub::after {
   display: block;
@@ -95,7 +95,7 @@
   position: absolute;
   height: 0;
   width: 100%;
-  border: 12px solid transparent;
+  /*border: 12px solid transparent;*/
   border-top-color: #2b2f3a;
   z-index: -2;
   -webkit-transition: left .25s ease;
@@ -172,7 +172,8 @@
   text-align: right;
 }
 #cssmenu ul ul li:hover > a {
-  background: #f2f2f2;
+  /*background: #f2f2f2;*/ /*Background color menu bar*/
+  background: white; /*Background color menu bar*/
   color: #8c9195;
 }
 #cssmenu ul ul li:last-child > a,
