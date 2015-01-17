@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Bootstrap 3, from LayoutIt!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=800px, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -46,7 +46,8 @@
     </style>
 
     <!-- SEARCH box -->
-    <style>
+    <!--
+	<style>
         #apple {
             height: 28px;
 
@@ -89,34 +90,124 @@
             text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
         }
     </style>
+	-->
+    <!-- NEW SEARCH BOX -->
+    <style>
+        input {
+            outline: none;
+        }
 
+        input[type=search] {
+            -webkit-appearance: textfield;
+            -webkit-box-sizing: content-box;
+            font-family: inherit;
+            font-size: 100%;
+        }
+
+        input::-webkit-search-decoration,
+        input::-webkit-search-cancel-button {
+            display: none;
+        }
+
+        input[type=search] {
+            background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+            border: solid 1px #ccc;
+            padding: 9px 10px 9px 32px;
+            width: 55px;
+
+            -webkit-border-radius: 10em;
+            -moz-border-radius: 10em;
+            border-radius: 10em;
+
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            transition: all .5s;
+        }
+
+        input[type=search]:focus {
+            width: 130px;
+            background-color: #fff;
+            border-color: #66CC75;
+
+            -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+            -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+            box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+        }
+
+        input:-moz-placeholder {
+            color: #999;
+        }
+
+        input::-webkit-input-placeholder {
+            color: #999;
+        }
+
+        /* Demo 2 */
+        #demo-2 input[type=search] {
+            width: 15px;
+            padding-left: 10px;
+            color: transparent;
+            cursor: pointer;
+        }
+
+        #demo-2 input[type=search]:hover {
+            background-color: #fff;
+        }
+
+        #demo-2 input[type=search]:focus {
+            width: 130px;
+            padding-left: 32px;
+            color: #000;
+            background-color: #fff;
+            cursor: auto;
+        }
+
+        #demo-2 input:-moz-placeholder {
+            color: transparent;
+        }
+
+        #demo-2 input::-webkit-input-placeholder {
+            color: transparent;
+        }
+    </style>
 </head>
 
 <body>
-<div class="container">
+<style>
+    /*Disable responsive - DO NOT SUPPORT mobile device*/
+    #container1 {
+        width: 960px !important;
+        max-width: none !important;
+    }
+</style>
+<div class="container" id="container1">
 <div class="row clearfix">
-<div class="col-md-12 column">
+<div class="col-xs-12 column">
 <!-- HEADER: LOGO, SEARCH, MENU -->
 <div class="row clearfix">
-    <div class="col-md-3 column">
+    <div class="col-xs-3 column">
         <img src="img/logo.jpg" style="height: 94px; max-width: 100%;">
     </div>
-    <div class="col-md-9 column" style="height: 94px">
+    <div class="col-xs-9 column" style="height: 94px">
         <!-- SEARCH -->
         <div class="row clearfix" style="padding: 5px 0px 5px 0px; height: 50px">
-            <div class="col-md-12 column">
-
+            <div class="col-xs-12 column">
+                <!--
                 <div id="apple" style="float: right;">
                     <form method="get" action="/search" id="search">
                         <input name="q" type="text" size="40" placeholder="Tìm kiếm ..."/>
                     </form>
+                </div>
+                -->
+                <div class="pull-right" style="padding-top: 12px">Hotline: 097 999 6 234 | Email:
+                    quocdunginfo@gmail.com
                 </div>
                 <div style="clear: both;"></div>
             </div>
         </div>
         <!-- MENU -->
         <div class="row clearfix">
-            <div class="col-md-12 column" style="padding-left: 0px">
+            <div class="col-xs-12 column" style="padding-left: 0px">
                 <div id='cssmenu'>
                     <ul>
                         <li><a href='#'><span>Home</span></a></li>
@@ -138,73 +229,98 @@
                         </li>
                         <li><a href='#'><span>About</span></a></li>
                         <li class='last'><a href='#'><span>Contact</span></a></li>
+                        <li>
+                            <form id="demo-2">
+                                <input type="search" placeholder="Search">
+                            </form>
+                        </li>
                     </ul>
                 </div>
+
                 <div style="clear: both;"></div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="row clearfix">
-<div class="col-md-12 column">
-<!-- BANNER -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
+<div class="row clearfix" style="margin-top: 20px">
+    <div class="col-xs-12 column">
+        <style>
+            .carousel-indicators li {
+                border-radius: 0px;
+                margin-right: 20px;
+                height: 30px;
+                width: 30px;
+            }
 
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="item active"><img src="http://lorempixel.com/1200/400/sports" style="width:100%" alt="First slide">
+            .carousel-indicators li.active {
+                border-radius: 0px;
+                margin-right: 20px;
+                height: 30px;
+                width: 30px;
+            }
+        </style>
+        <!-- BANNER -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
 
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Slide 1</h1>
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active"><img src="http://lorempixel.com/1200/400/sports" style="width:100%"
+                                              alt="First slide">
 
-                    <p>Aenean a rutrum nulla. Vestibulum a arcu at nisi tristique pretium.</p>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Slide 1</h1>
 
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                            <p>Aenean a rutrum nulla. Vestibulum a arcu at nisi tristique pretium.</p>
+
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item"><img src="http://lorempixel.com/1200/400/people" style="width:100%" data-src=""
+                                       alt="Second    slide">
+
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Slide 2</h1>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae egestas purus. </p>
+
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item"><img src="http://lorempixel.com/1200/400/abstract" style="width:100%" data-src=""
+                                       alt="Third slide">
+
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Slide 3</h1>
+
+                            <p>Donec sit amet mi imperdiet mauris viverra accumsan ut at libero.</p>
+
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
+                    class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control"
+                                                                            href="#myCarousel"
+                                                                            data-slide="next"><span
+                class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
-        <div class="item"><img src="http://lorempixel.com/1200/400/people" style="width:100%" data-src=""
-                               alt="Second    slide">
-
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Slide 2</h1>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae egestas purus. </p>
-
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="item"><img src="http://lorempixel.com/1200/400/abstract" style="width:100%" data-src=""
-                               alt="Third slide">
-
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Slide 3</h1>
-
-                    <p>Donec sit amet mi imperdiet mauris viverra accumsan ut at libero.</p>
-
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                </div>
-            </div>
-        </div>
+        <!-- END BANNER -->
     </div>
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
-            class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myCarousel"
-                                                                    data-slide="next"><span
-        class="glyphicon glyphicon-chevron-right"></span></a>
 </div>
-<!-- END BANNER -->
 <div class="row clearfix">
-    <div class="col-md-12 column">
+    <div class="col-xs-12 column">
         <div class="panel panel-default" style="margin-top: 20px">
             <div class="panel-heading">
                 <h3 class="panel-title">Sản phẩm nổi bật</h3>
@@ -230,40 +346,9 @@
                         padding: 5px 5px 5px 5px;
                         text-align: center;
                     }
-                    .qd-product-title{
+
+                    .qd-product-title {
                         height: 20%;
-                    }
-
-                    /*Mobile*/
-                    @media (min-width: 0px) and (max-width: 399px) {
-                        .btn-responsive {
-                            padding: 2px 4px;
-                            font-size: 85%;
-                            line-height: 1;
-                            border-radius: 3px;
-                        }
-
-                        .qd-thumbnail {
-                            height: 90px;
-                        }
-                        .qd-product-title{
-                            font-size: 40%;
-                        }
-                    }
-
-                    /*Tablet or not full screen*/
-                    @media (min-width: 400px) and (max-width: 800px) {
-                        .btn-responsive {
-                            padding: 4px 9px;
-                            font-size: 90%;
-                            line-height: 1.2;
-                        }
-                        .qd-product-title{
-                            font-size: 80%;
-                        }
-                        .qd-thumbnail {
-                            height: 140px;
-                        }
                     }
 
                     /**/
@@ -276,7 +361,7 @@
                 <!-- FEATURE PRODUCTS -->
                 <div class="row">
 
-                    <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                    <div class="col-xs-4 qd-cell" style="text-align: center">
 
                         <div class="qd-thumbnail">
                             <div class="qd-product-title">MODEL: GTR 89765T</div>
@@ -284,7 +369,7 @@
                         </div>
                         <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
                     </div>
-                    <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                    <div class="col-xs-4 qd-cell" style="text-align: center">
 
                         <div class="qd-thumbnail">
                             <div class="qd-product-title">MODEL: GTR 89765T</div>
@@ -292,7 +377,7 @@
                         </div>
                         <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
                     </div>
-                    <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                    <div class="col-xs-4 qd-cell" style="text-align: center">
 
                         <div class="qd-thumbnail">
                             <div class="qd-product-title">MODEL: GTR 89765T</div>
@@ -300,7 +385,7 @@
                         </div>
                         <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
                     </div>
-                    <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                    <div class="col-xs-4 qd-cell" style="text-align: center">
 
                         <div class="qd-thumbnail">
                             <div class="qd-product-title">MODEL: GTR 89765T</div>
@@ -308,7 +393,7 @@
                         </div>
                         <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
                     </div>
-                    <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+                    <div class="col-xs-4 qd-cell" style="text-align: center">
 
                         <div class="qd-thumbnail">
                             <div class="qd-product-title">MODEL: GTR 89765T</div>
@@ -316,45 +401,16 @@
                         </div>
                         <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
                     </div>
-                    <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
+
+                    <div class="col-xs-4 qd-cell" style="text-align: center">
 
                         <div class="qd-thumbnail">
                             <div class="qd-product-title">MODEL: GTR 89765T</div>
                             <img src="img/may_cong_nghiep.jpg">
                         </div>
-                        <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
-                    </div>
-                    <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
-
-                        <div class="qd-thumbnail">
-                            <div class="qd-product-title">MODEL: GTR 89765T</div>
-                            <img src="img/may_cong_nghiep_2.jpg">
-                        </div>
-                        <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
-                    </div>
-                    <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
-
-                        <div class="qd-thumbnail">
-                            <div class="qd-product-title">MODEL: GTR 89765T</div>
-                            <img src="img/may_cong_nghiep.jpg">
-                        </div>
-                        <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
-                    </div>
-                    <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
-
-                        <div class="qd-thumbnail">
-                            <div class="qd-product-title">MODEL: GTR 89765T</div>
-                            <img src="img/may_cong_nghiep_3.jpg">
-                        </div>
-                        <button name="button" class="btn btn-primary btn-responsive">Đặt hàng</button>
-                    </div>
-                    <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell qd-cell" style="text-align: center">
-
-                        <div class="qd-thumbnail">
-                            <div class="qd-product-title">MODEL: GTR 89765T</div>
-                            <img src="img/may_cong_nghiep.jpg">
-                        </div>
-                        <button name="button" class="btn btn-primary btn-responsive" data-toggle="modal" data-target="#myModal">Đặt hàng MODAL</button>
+                        <button name="button" class="btn btn-primary btn-responsive" data-toggle="modal"
+                                data-target="#myModal">Đặt hàng MODAL
+                        </button>
                     </div>
                     <!--
                     <div class="col-lg-2 col-sm-4 col-xs-4 qd-cell">
@@ -372,7 +428,7 @@
 </div>
 <!-- Part 5 Lien He -->
 <div class="row clearfix">
-    <div class="col-md-12 column">
+    <div class="col-xs-12 column">
         <div style="text-align: center;">
             <style>
                 hr.style-six {
@@ -421,15 +477,6 @@
     </div>
 </div>
 <!-- END Part 5 -->
-<!-- Part 6 Copyright Statement -->
-<div class="row clearfix" style="margin-top: 0px;">
-    <div class="col-md-12 column">
-        <div class="hideme" style="text-align: center; padding: 40px 0px 35px 0px; background-color: #eef3f3;">
-            Copyright @ 2015 Máy phát điện Thảo Nguyên
-        </div>
-
-    </div>
-</div>
 <!-- END Part 6 -->
 <!-- MODAL -->
 <!-- Modal -->
@@ -437,7 +484,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Modal title</h4>
             </div>
             <div class="modal-body">
@@ -450,35 +498,42 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="textinput">Text Input</label>
-                            <div class="col-md-4">
-                                <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+                            <label class="col-xs-4 control-label" for="textinput">Text Input</label>
+
+                            <div class="col-xs-4">
+                                <input id="textinput" name="textinput" type="text" placeholder="placeholder"
+                                       class="form-control input-md">
                                 <span class="help-block">help</span>
                             </div>
                         </div>
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="textinput">Text Input</label>
-                            <div class="col-md-4">
-                                <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+                            <label class="col-xs-4 control-label" for="textinput">Text Input</label>
+
+                            <div class="col-xs-4">
+                                <input id="textinput" name="textinput" type="text" placeholder="placeholder"
+                                       class="form-control input-md">
                                 <span class="help-block">help</span>
                             </div>
                         </div>
 
                         <!-- Password input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="passwordinput">Password Input</label>
-                            <div class="col-md-4">
-                                <input id="passwordinput" name="passwordinput" type="password" placeholder="placeholder" class="form-control input-md">
+                            <label class="col-xs-4 control-label" for="passwordinput">Password Input</label>
+
+                            <div class="col-xs-4">
+                                <input id="passwordinput" name="passwordinput" type="password" placeholder="placeholder"
+                                       class="form-control input-md">
                                 <span class="help-block">help</span>
                             </div>
                         </div>
 
                         <!-- Button -->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
-                            <div class="col-md-4">
+                            <label class="col-xs-4 control-label" for="singlebutton">Single Button</label>
+
+                            <div class="col-xs-4">
                                 <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
                             </div>
                         </div>
@@ -500,6 +555,21 @@
 </div>
 </div>
 </div>
+</div>
+<div class="container" id="container2" style="width: 100%; min-width: 960px">
+    <div class="row clearfix">
+        <div class="col-xs-12 column">
+            <!-- Part 6 Copyright Statement -->
+            <div class="row clearfix" style="margin-top: 0px; background-color: #04a4cc;">
+                <div class="col-xs-12 column">
+                    <div class="hideme" style="text-align: center; padding: 40px 0px 35px 0px;">
+                        Copyright @ 2015 Máy phát điện Thảo Nguyên
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

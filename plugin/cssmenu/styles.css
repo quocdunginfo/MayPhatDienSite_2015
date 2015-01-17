@@ -13,9 +13,11 @@
 #cssmenu > ul {
   position: relative;
   display: block;
-  background: white;/*menu bar bg color*/
-  width: 100%;
+  background: white;/*quocdunginfo menu bar bg color*/
+  /*width: 100%;*/
+  width: auto;/*quocdunginfo float right have effect*/
   z-index: 500;
+  float: right; /*quocdunginfo float to right*/
 }
 #cssmenu:after,
 #cssmenu > ul:after {
@@ -36,7 +38,6 @@
   text-align: left;
 }
 #cssmenu > ul > li {
-  float: right; /*Chỉnh menu canh về bên phải*/
   display: inline-block;
   position: relative;
   margin: 0;
@@ -66,7 +67,7 @@
   padding-right: 32px;
 }
 #cssmenu > ul > li:hover > a {
-  color: black; /*Menu item level 0 hover color*/
+  color: black; /*quocdunginfo Menu item level 0 hover color*/
 }
 #cssmenu li.has-sub::after {
   display: block;
@@ -96,7 +97,7 @@
   position: absolute;
   height: 0;
   width: 100%;
-  /*border: 12px solid transparent;*/
+  /*border: 12px solid transparent; quocdunginfo */
   border-top-color: #2b2f3a;
   z-index: -2;
   -webkit-transition: left .25s ease;
@@ -162,7 +163,7 @@
   padding: 10px 20px;
   font-size: 12px;
   color: #9ea2a5;
-  background: #ffffff; /*BG của từng level 1 sub*/
+  background: #ffffff; /*quocdunginfo BG của từng level 1 sub*/
   -webkit-transition: all .35s ease;
   -moz-transition: all .35s ease;
   -ms-transition: all .35s ease;
@@ -173,8 +174,8 @@
   text-align: right;
 }
 #cssmenu ul ul li:hover > a {
-  /*background: white;*/ /*Background color khi hover menu item lv1 sub*/
-  background: white; /*Background color menu bar*/
+  /*background: white;*/ /*quocdunginfo Background color khi hover menu item lv1 sub*/
+  background: white; /*quocdunginfo Background color menu bar*/
   color: #8c9195;
 }
 #cssmenu ul ul li:last-child > a,
@@ -231,6 +232,7 @@
   -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
+/*
 @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   #cssmenu {
     width: auto;
@@ -350,3 +352,4 @@
     border-color: #fff;
   }
 }
+*/
