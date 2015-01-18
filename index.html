@@ -21,10 +21,6 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="img/favicon.png">
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -229,11 +225,39 @@
                         </li>
                         <li><a href='#'><span>About</span></a></li>
                         <li class='last'><a href='#'><span>Contact</span></a></li>
+                        <style>
+
+                            #demo-2 > div.qd-result-wrapper {
+                                display: none;
+                                border-radius: 20px;
+                            }
+                            #demo-2:hover > div.qd-result-wrapper{
+                                display: block;
+                            }
+                            .qd-result-item {
+                                padding: 15px;
+
+                            }
+                            .qd-result-item a {
+                                text-decoration: none !important;
+                                color: white;
+                            }
+                        </style>
                         <li>
-                            <form id="demo-2">
-                                <input type="search" placeholder="Search">
+                            <form id="demo-2" style="position: relative">
+                                <input id="qd-search-box" type="search" placeholder="Search">
+
+                                <div class="qd-result-wrapper" style="z-index: 1000; right: 0px; position: absolute; width: 300px; height: auto; background-color: #000000; opacity: 0.8; color: white">
+                                    <div class="qd-result-item">
+                                        <a href="">Match 1 không</a>
+                                    </div>
+                                    <div class="qd-result-item">Result 1</div>
+                                    <div class="qd-result-item">Result 1</div>
+                                    <div class="qd-result-item">Result 1</div>
+                                </div>
                             </form>
                         </li>
+
                     </ul>
                 </div>
 
