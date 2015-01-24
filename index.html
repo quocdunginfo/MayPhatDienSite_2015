@@ -30,16 +30,7 @@
     <!-- CSS memu -->
     <link rel="stylesheet" href="plugin/cssmenu/styles.css">
     <script src="plugin/cssmenu/script.js"></script>
-    <!-- CSS memu : FIX layout conflict with bootstrap -->
-    <style>
-        #cssmenu *,
-        #cssmenu *:before,
-        #cssmenu *:after {
-            -webkit-box-sizing: content-box;
-            -moz-box-sizing: content-box;
-            box-sizing: content-box;
-        }
-    </style>
+
 
     <!-- SEARCH box -->
     <!--
@@ -106,7 +97,7 @@
         }
 
         input[type=search] {
-            background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+            background: #ededed url(img/search-icon.png) no-repeat 9px center;
             border: solid 1px #ccc;
             padding: 9px 10px 9px 32px;
             width: 55px;
@@ -166,6 +157,35 @@
             color: transparent;
         }
     </style>
+    <style>
+        hr.style-six {
+            height: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
+        }
+
+        hr.style-seven {
+            height: 0;
+            border-top: 2px solid #dbdbdb;
+            /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
+        }
+        hr.long-red-line {
+            height: 0;
+            border-top: 5px solid #db243c;
+            margin: 0;
+            /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
+        }
+    </style>
+    <!-- CSS memu : FIX layout conflict with bootstrap -->
+    <style>
+        #cssmenu *,
+        #cssmenu *:before,
+        #cssmenu *:after {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+    </style>
 </head>
 
 <body>
@@ -174,6 +194,8 @@
     #container1 {
         width: 960px !important;
         max-width: none !important;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 </style>
 <div class="container" id="container1">
@@ -182,17 +204,19 @@
 <!-- LINE RED -->
 <div class="row clearfix">
     <div class="col-xs-12 column">
-        <div style="height: 7px; background-color: #db243c"></div>
+        <hr class="long-red-line">
     </div>
 </div>
-<!-- HEADER: LOGO, SEARCH, MENU -->
+<!-- HEADER -->
 <div class="row clearfix">
-    <div class="col-xs-3 column">
-        <img src="img/logo.jpg" style="height: 94px; max-width: 100%;">
+    <!-- LOGO -->
+    <div class="col-xs-4 column" style="padding-left: 70px; padding-top: 5px">
+        <img src="img/logo.jpg" style="max-width: 100%; height:70px">
     </div>
-    <div class="col-xs-9 column" style="height: 94px">
+    <!-- END LOGO -->
+    <div class="col-xs-8 column">
         <!-- SEARCH -->
-        <div class="row clearfix" style="padding: 5px 0px 5px 0px; height: 50px">
+        <div class="row clearfix" style="padding: 5px 0px 5px 0px; height: 45px">
             <div class="col-xs-12 column">
                 <!--
                 <div id="apple" style="float: right;">
@@ -208,22 +232,27 @@
                             display: none;
                             border-radius: 20px;
                         }
-                        #demo-2:hover > div.qd-result-wrapper{
+
+                        #demo-2:hover > div.qd-result-wrapper {
                             display: block;
                         }
+
                         .qd-result-item {
                             padding: 15px;
 
                         }
+
                         .qd-result-item a {
                             text-decoration: none !important;
                             color: white;
                         }
                     </style>
+                    <!--
                     <form id="demo-2" style="position: relative;">
                         <input id="qd-search-box" type="search" placeholder="Search">
 
-                        <div class="qd-result-wrapper" style="z-index: 1000; right: 0px; position: absolute; width: 300px; height: auto; background-color: #000000; opacity: 0.8; color: white">
+                        <div class="qd-result-wrapper"
+                             style="z-index: 1000; right: 0px; position: absolute; width: 300px; height: auto; background-color: #000000; opacity: 0.8; color: white">
                             <div class="qd-result-item">
                                 <a href="">Match 1 không</a>
                             </div>
@@ -232,59 +261,59 @@
                             <div class="qd-result-item">Result 1</div>
                         </div>
                     </form>
+                    -->
                 </div>
                 <div style="clear: both;"></div>
             </div>
         </div>
+        <!-- END SEARCH -->
         <!-- MENU -->
         <div class="row clearfix">
             <div class="col-xs-12 column" style="padding-left: 0px">
-                <div id='cssmenu'>
+                <div id='cssmenu' style="height: 30px; margin-right: 10px">
                     <ul>
                         <li><a href='#'><span>TRANG CHỦ</span></a></li>
-                        <li class='active has-sub'><a href='#'><span>DANH MỤC SẢN PHẨM</span></a>
+                        <li class='active'><a href='#'><span>DANH MỤC SẢN PHẨM</span></a>
                             <ul>
-                                <li class='has-sub'><a href='#'><span>SP1</span></a>
-                                    <ul>
-                                        <li><a href='#'><span>SP1.1</span></a></li>
-                                        <li class='last'><a href='#'><span>SP1.2</span></a></li>
-                                    </ul>
-                                </li>
-                                <li class='has-sub'><a href='#'><span>SP2</span></a>
-
-                                </li>
+                                <li><a href='#'><span>Sản phẩm số 1 - độ dài quá chừng</span></a></li>
+                                <li><a href='#'><span>SP2</span></a></li>
                             </ul>
                         </li>
                         <li><a href='#'><span>DỊCH VỤ</span></a></li>
-                        <li class='last'><a href='#'><span>TUYỂN DỤNG</span></a></li>
-                        <li class='last'><a href='#'><span>GIỚI THIỆu</span></a></li>
-                        <li class='last'><a href='#'><span>LIÊN HỆ</span></a></li>
+                        <li><a href='#'><span>TUYỂN DỤNG</span></a></li>
+                        <li><a href='#'><span>GIỚI THIỆu</span></a></li>
+                        <li><a href='#'><span>LIÊN HỆ</span></a></li>
                     </ul>
                 </div>
 
                 <div style="clear: both;"></div>
             </div>
         </div>
+        <!-- END MENU -->
+
     </div>
 </div>
-
-<div class="row clearfix" style="margin-top: 20px">
+<!-- BANNER -->
+<div class="row clearfix">
     <div class="col-xs-12 column">
         <style>
             .carousel-indicators li {
-                border-radius: 0px;
+                border-radius: 50%;
                 margin-right: 20px;
-                height: 30px;
-                width: 30px;
+                height: 17px;
+                width: 17px;
+                border-color: slategray;
             }
 
             .carousel-indicators li.active {
-                border-radius: 0px;
+                border-radius: 50%;
                 margin-right: 20px;
-                height: 30px;
-                width: 30px;
+                height: 17px;
+                width: 17px;
+                background-color: slategray;
             }
         </style>
+        <hr class="style-seven" style="width: 100%; margin-top: 4px; margin-bottom: 12px;"/>
         <!-- BANNER -->
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -295,161 +324,263 @@
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="item active"><img src="http://lorempixel.com/1200/400/sports" style="width:100%"
+                <div class="item active"><img src="img/slide1.jpg" style="width:100%"
                                               alt="First slide">
 
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Slide 1</h1>
 
-                            <p>Aenean a rutrum nulla. Vestibulum a arcu at nisi tristique pretium.</p>
-
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                        </div>
-                    </div>
                 </div>
-                <div class="item"><img src="http://lorempixel.com/1200/400/people" style="width:100%" data-src=""
+                <div class="item"><img src="img/slide2.jpg" style="width:100%" data-src=""
                                        alt="Second    slide">
 
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Slide 2</h1>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae egestas purus. </p>
-
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                        </div>
-                    </div>
                 </div>
-                <div class="item"><img src="http://lorempixel.com/1200/400/abstract" style="width:100%" data-src=""
-                                       alt="Third slide">
+                <div class="item">
+                    <img src="img/slide3.jpg" style="width:100%" data-src=""
+                         alt="Third slide">
 
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Slide 3</h1>
 
-                            <p>Donec sit amet mi imperdiet mauris viverra accumsan ut at libero.</p>
-
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
-                    class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control"
-                                                                            href="#myCarousel"
-                                                                            data-slide="next"><span
-                class="glyphicon glyphicon-chevron-right"></span></a>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="visibility: hidden">
+                <span
+                        class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control"
+               href="#myCarousel"
+               data-slide="next" style="visibility: hidden"><span
+                    class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
         <!-- END BANNER -->
     </div>
 </div>
-<div class="row clearfix">
+<!-- END BANNER -->
+<div class="row clearfix" style="margin-top: 65px">
     <div class="col-xs-12 column">
         <div class="row clearfix">
-            <div class="col-xs-6 column" style="background-color: navajowhite">
-                <div style="width: 415px; height: 270px; background-color: #003399; position: relative; border: solid 1px gray; margin-left: 40px; margin-top: 60px; float: left ">
-                    <img src="img/may_cong_nghiep.jpg" style="position: absolute; width: 100%; height: 100%">
-                    <div style="line-height: 60px; text-align: center; vertical-align: middle; width: 100%; height: 55px; position: absolute; bottom: 0px; left: 0px; background-color: black; opacity: 0.9; color: white">
-                        TITLE
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 column" style="background-color: darkseagreen">
-                <div style="width: 415px; height: 270px; background-color: #003399; position: relative; border: solid 1px gray; margin-right: 40px; margin-top: 60px; float: right">
-                    <img src="img/may_cong_nghiep.jpg" style="position: absolute; width: 100%; height: 100%">
-                    <div style="line-height: 60px; text-align: center; vertical-align: middle; width: 100%; height: 55px; position: absolute; bottom: 0px; left: 0px; background-color: black; opacity: 0.9; color: white">
-                        TITLE
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row clearfix">
-            <div class="col-xs-6 column" style="background-color: navajowhite">
-                <div style="width: 415px; height: 270px; background-color: #003399; position: relative; border: solid 1px gray; margin-left: 40px; margin-top: 60px; float: left ">
-                    <img src="img/may_cong_nghiep.jpg" style="position: absolute; width: 100%; height: 100%">
-                    <div style="line-height: 60px; text-align: center; vertical-align: middle; width: 100%; height: 55px; position: absolute; bottom: 0px; left: 0px; background-color: black; opacity: 0.9; color: white">
-                        TITLE
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 column" style="background-color: darkseagreen">
-                <div style="width: 415px; height: 270px; background-color: #003399; position: relative; border: solid 1px gray; margin-right: 40px; margin-top: 60px; float: right">
-                    <img src="img/may_cong_nghiep.jpg" style="position: absolute; width: 100%; height: 100%">
-                    <div style="line-height: 60px; text-align: center; vertical-align: middle; width: 100%; height: 55px; position: absolute; bottom: 0px; left: 0px; background-color: black; opacity: 0.9; color: white">
-                        TITLE
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- Part 5 Facebook -->
-<div class="row clearfix">
-    <div class="col-xs-12 column">
-        <div style="text-align: center;">
             <style>
-                hr.style-six {
-                    border: 0;
-                    height: 0;
-                    border-top: 1px solid rgba(255, 255, 255, 0.8);
-                    /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
+                .qd-image-box-left {
+                    width: 429px;
+                    height: 280px;
+                    position: relative;
+                    border: solid 1px #CACACA;
+                    margin-left: 40px;
+                    margin-bottom: 65px;
+                    float: left;
+                }
+
+                .qd-image-box-right {
+                    width: 429px;
+                    height: 280px;
+                    position: relative;
+                    border: solid 1px #CACACA;
+                    margin-right: 40px;
+                    margin-bottom: 65px;
+                    float: right;
+                }
+
+                .qd-image-box-caption {
+                    line-height: 60px;
+                    text-align: center;
+                    vertical-align: middle;
+                    width: 100%;
+                    height: 55px;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    background-color: black;
+                    opacity: 0.8;
+                    color: white;
+                    font-size: 18px;
                 }
             </style>
-            <hr class="style-six" style="width: 100%"/>
-
-            <div class="hideme" style="margin-top: 30px; height: 70px; vertical-align: middle;">
-                <style>
-                    .social-first-left {
-                        margin-left: 0px;
-                        border-radius: 50% 50% 50% 50%;
-                        width: 35px;
-                        height: 35px;
-                    }
-
-                    .social {
-                        margin-left: 30px;
-                        border-radius: 50% 50% 50% 50%;
-                        width: 35px;
-                        height: 35px;
-                    }
-
-                    .social:hover, .social-first-left:hover {
-                        opacity: 0.4;
-                    }
-                </style>
-                <a href="#"/>
-                <img class="social-first-left" src="img/vn_facebook.png"/>
+            <div class="col-xs-6 column">
+                <a href="http://google.com">
+                    <div class="qd-image-box-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+                        <div class="qd-image-box-caption">
+                            MÁY PHÁT ĐIỆN
+                        </div>
+                    </div>
                 </a>
-                <a href="#"/>
-                <img class="social" src="img/vn_google.png"/>
+            </div>
+            <div class="col-xs-6 column">
+                <div class="qd-image-box-right" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+                    <div class="qd-image-box-caption">
+                        MÁY CÔNG CỤ
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xs-6 column">
+                <div class="qd-image-box-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+                    <div class="qd-image-box-caption">
+                        MÁY PHÁT ĐIỆN
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 column">
+                <a href="http://google.com">
+                    <div class="qd-image-box-right" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center;">
+                        <div class="qd-image-box-caption">
+                            MÁY CÔNG CỤ
+                        </div>
+                    </div>
                 </a>
-                <a href="#"/>
-                <img class="social" src="img/vn_twitter.png"/>
+            </div>
+
+            <div class="col-xs-6 column">
+                <a href="http://google.com">
+                    <div class="qd-image-box-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+                        <div class="qd-image-box-caption">
+                            MÁY PHÁT ĐIỆN
+                        </div>
+                    </div>
                 </a>
             </div>
 
 
         </div>
-
     </div>
 </div>
+<!-- LINE RED -->
+<div class="row clearfix">
+    <div class="col-xs-12 column">
+        <hr class="long-red-line">
+    </div>
+</div>
+<div class="row clearfix"
+     style="margin-top: 0px; margin-left: 0px; margin-right: 0px; background-color: #4d4d4d; color: white">
+    <div class="col-xs-12 column">
+        <!-- NAVIGATION -->
+        <style>
+            .qd-footer-nav{
+                padding-top: 100px;
+                padding-bottom: 70px;
+            }
+            .qd-footer-nav ul li {
+                padding: 0px 0px 10px 0px;
+            }
+        </style>
+        <div class="row clearfix qd-footer-nav"
+             style=" margin-right: 0px; width: auto; position: relative; ">
+            <div class="col-xs-3 column">
+                <ul style="list-style: none">
+                    <li><b>DANH MỤC SẢN PHẨM</b></li>
+                    <li>Máy phát điện</li>
+                    <li>Máy hàn</li>
+                    <li>Máy cắt cỏ</li>
+                    <li>Sản phẩm khác</li>
+                </ul>
+
+            </div>
+            <div class="col-xs-3 column">
+                <ul style="list-style: none">
+                    <li>DANH MỤC SẢN PHẨM</li>
+                    <li>Máy phát điện</li>
+                    <li>Máy hàn</li>
+                    <li>Máy cắt cỏ</li>
+                    <li>Sản phẩm khác</li>
+                </ul>
+
+            </div>
+            <div class="col-xs-3 column">
+                <div>TƯ VẤN - HỖ TRỢ</div>
+                <br>
+
+                <div style="font-size: 20px">097 999 6 234</div>
+                <div>(Từ 7:00 - 20:00 mỗi ngày)</div>
+
+            </div>
+            <div class="col-xs-3 column">
+                <div><b>KẾT NỐI</b></div>
+                <!-- facebook -->
+                <div>
+
+                    <div style="margin-top: 10px; height: 70px; vertical-align: middle; ">
+                        <style>
+                            .social {
+                                margin-left: 15px;
+                                border-radius: 50% 50% 50% 50%;
+                                width: 25px;
+                                height: 25px;
+                            }
+
+                            .social-first-right {
+                                margin-left: 0px;
+                            }
+
+                            .social:hover {
+                                opacity: 0.4;
+                            }
+                        </style>
+                        <a href="#"/>
+                        <img class="social-first-right social" src="img/vn_facebook.png"/>
+                        </a>
+                        <a href="#"/>
+                        <img class="social" src="img/vn_google.png"/>
+                        </a>
+                        <a href="#"/>
+                        <img class="social" src="img/vn_twitter.png"/>
+                        </a>
+                        <a href="#"/>
+                        <img class="social" src="img/vn_twitter.png"/>
+                        </a>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Part 6 Copyright Statement -->
+        <div class="row clearfix" style="margin-top: 0px;">
+            <div class="col-xs-12 column">
+                <hr class="style-six" style="width: 850px; margin-top: 0; margin-bottom: 0"/>
+                <div style="text-align: center; padding-top: 30px; padding-bottom: 30px">
+                    <b>CÔNG TY TNHH MÁY PHÁT ĐIỆN THẢO NGUYÊN</b>
+                    <br>
+                    Trụ sở: 123 Lê Văn Sỹ, P.14, Quận Phú Nhuận, TP.HCM
+                    <br>
+                    Điện thoại: 123456789 - 098 900 9333
+                    <br>
+                    website: www.mayphatdienthaonguyen.com
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 </div>
 </div>
 </div>
 </div>
 </div>
+<!--
 <div class="container" id="container2" style="width: 100%; min-width: 960px">
     <div class="row clearfix">
         <div class="col-xs-12 column">
-            <!-- Part 6 Copyright Statement -->
+            Part 6 Copyright Statement
             <div class="row clearfix" style="margin-top: 0px; background-color: #04a4cc;">
                 <div class="col-xs-12 column">
                     <div class="hideme" style="text-align: center; padding: 40px 0px 35px 0px;">
-                        Copyright @ 2015 Máy phát điện Thảo Nguyên
+                        CÔNG TY TNHH MÁY PHÁT ĐIỆN THẢO NGUYÊN
+                        <br>
+                        Trụ sở: 123 Lê Văn Sỹ, P.14, Quận Phú Nhuận, TP.HCM
+                        <br>
+                        Điện thoại: 123456789 - 098 900 9333
+                        <br>
+                        website: www.mayphatdienthaonguyen.com
                     </div>
 
                 </div>
@@ -457,5 +588,6 @@
         </div>
     </div>
 </div>
+-->
 </body>
 </html>
