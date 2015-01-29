@@ -220,58 +220,41 @@
         </div>
         <!-- END LOGO -->
         <div class="col-xs-9 column">
-            <!-- SEARCH -->
-            <div class="row clearfix" style="padding: 5px 0px 5px 0px; height: 45px">
-                <div class="col-xs-12 column">
-                    <!--
-                    <div id="apple" style="float: right;">
-                        <form method="get" action="/search" id="search">
-                            <input name="q" type="text" size="40" placeholder="Tìm kiếm ..."/>
-                        </form>
+            <!-- Search -->
+            <div id="qd_search" class="pull-right" style="margin-top: 10px">
+                <style>
+                    #qd_search > form > div.qd-result-wrapper {
+                        display: none;
+                        border-radius: 20px;
+                    }
+                    #qd_search > form:hover > div.qd-result-wrapper {
+                        display: block;
+                    }
+                    .qd-result-item {
+                        padding: 15px;
+                    }
+                    .qd-result-item a {
+                        text-decoration: none !important;
+                        color: white;
+                    }
+                </style>
+                <form action="#" method="get" style="position: relative">
+                    <img src="img/search-icon-hi.png" style="height: 20px; width: 20px; position: absolute; top: 7px; right: 10px; opacity: 0.6">
+                    <input id="qd-search-box" class="form-control" type="text" style="width: 200px; padding-right: 40px" placeholder="search...">
+                    <div class="qd-result-wrapper"
+                         style="z-index: 1000; right: 0px; position: absolute; width: 300px; height: auto; background-color: #000000; opacity: 0.8; color: white">
+                        <div class="qd-result-item">
+                            <a href="">Match 1 không</a>
+                        </div>
+                        <div class="qd-result-item">Result 1</div>
+                        <div class="qd-result-item">Result 1</div>
+                        <div class="qd-result-item">Result 1</div>
                     </div>
-                    -->
-                    <div class="pull-right" style="padding-top: 12px">
-                        <style>
-
-                            #demo-2 > div.qd-result-wrapper {
-                                display: none;
-                                border-radius: 20px;
-                            }
-
-                            #demo-2:hover > div.qd-result-wrapper {
-                                display: block;
-                            }
-
-                            .qd-result-item {
-                                padding: 15px;
-
-                            }
-
-                            .qd-result-item a {
-                                text-decoration: none !important;
-                                color: white;
-                            }
-                        </style>
-                        <!--
-                        <form id="demo-2" style="position: relative;">
-                            <input id="qd-search-box" type="search" placeholder="Search">
-
-                            <div class="qd-result-wrapper"
-                                 style="z-index: 1000; right: 0px; position: absolute; width: 300px; height: auto; background-color: #000000; opacity: 0.8; color: white">
-                                <div class="qd-result-item">
-                                    <a href="">Match 1 không</a>
-                                </div>
-                                <div class="qd-result-item">Result 1</div>
-                                <div class="qd-result-item">Result 1</div>
-                                <div class="qd-result-item">Result 1</div>
-                            </div>
-                        </form>
-                        -->
-                    </div>
-                    <div style="clear: both;"></div>
-                </div>
+                    <input type="submit" value="submit" style="display: none">
+                </form>
             </div>
-            <!-- END SEARCH -->
+            <div style="clear: both"></div>
+            <!-- End search -->
             <!-- MENU -->
             <div class="row clearfix">
                 <div class="col-xs-12 column" style="padding-left: 0px">
