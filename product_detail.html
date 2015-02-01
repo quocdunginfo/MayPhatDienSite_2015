@@ -201,8 +201,8 @@
     #container3 {
         width: 960px !important;
         max-width: none !important;
-        padding-left: 0px;
-        padding-right: 0px;
+        /*padding-left: 0px;
+        padding-right: 0px;*/
     }
 </style>
 <div class="container" id="container1" style="width: 100%; padding: 0;">
@@ -227,20 +227,26 @@
                         display: none;
                         border-radius: 20px;
                     }
+
                     #qd_search > form:hover > div.qd-result-wrapper {
                         display: block;
                     }
+
                     .qd-result-item {
                         padding: 15px;
                     }
+
                     .qd-result-item a {
                         text-decoration: none !important;
                         color: white;
                     }
                 </style>
                 <form action="#" method="get" style="position: relative">
-                    <img src="img/search-icon-hi.png" style="height: 20px; width: 20px; position: absolute; top: 7px; right: 10px; opacity: 0.6">
-                    <input id="qd-search-box" class="form-control" type="text" style="width: 200px; padding-right: 40px" placeholder="search...">
+                    <img src="img/search-icon-hi.png"
+                         style="height: 20px; width: 20px; position: absolute; top: 7px; right: 10px; opacity: 0.6">
+                    <input id="qd-search-box" class="form-control" type="text" style="width: 200px; padding-right: 40px"
+                           placeholder="search...">
+
                     <div class="qd-result-wrapper"
                          style="z-index: 1000; right: 0px; position: absolute; width: 300px; height: auto; background-color: #000000; opacity: 0.8; color: white">
                         <div class="qd-result-item">
@@ -261,7 +267,7 @@
                     <div id='cssmenu' style="height: 30px; right: -20px">
                         <ul>
                             <li><a href='#'><span>TRANG CHỦ</span></a></li>
-                            <li class='active'><a href='products2.html'><span>DANH MỤC SẢN PHẨM</span></a>
+                            <li class='active'><a href='#'><span>DANH MỤC SẢN PHẨM</span></a>
                                 <ul>
                                     <li><a href='#'><span>Sản phẩm số 1 - độ dài quá chừng</span></a></li>
                                     <li><a href='#'><span>SP2</span></a></li>
@@ -347,101 +353,122 @@
 
 
 <!-- CONTENT -->
-<div class="container" id="container3" style="margin-top: 65px">
+<div class="container" id="container3" style="margin-top: 10px">
     <!-- WIDGET -->
+    <!-- BREADSCRUM & TITLE -->
     <div class="row clearfix">
-        <style>
-            .qd-image-box-left {
-                width: 449px;
-                height: 280px;
-                position: relative;
-                border: solid 1px #CACACA;
-                margin-bottom: 65px;
-                float: right;
-            }
+        <div class="col-xs-12 column">
+            <style>
+                .breadcrumb li a {
+                    color: inherit;
+                    text-decoration: none;
+                }
 
-            .qd-image-box-right {
-                width: 449px;
-                height: 280px;
-                position: relative;
-                border: solid 1px #CACACA;
-                margin-bottom: 65px;
-                float: left;
-            }
-
-            .qd-image-box-caption {
-                line-height: 60px;
-                text-align: center;
-                vertical-align: middle;
-                width: 100%;
-                height: 55px;
-                position: absolute;
-                bottom: 0px;
-                left: 0px;
-                background: rgba(0, 0, 0, 0.7);
-                color: white;
-                font-size: 18px;
-            }
-        </style>
-        <div class="col-xs-6 column">
-            <a href="http://google.com">
-                <div class="qd-image-box-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                    <div class="qd-image-box-caption">
-                        MÁY PHÁT ĐIỆN
-                    </div>
-                </div>
-            </a>
+                .breadcrumb > li.active, li {
+                    color: inherit;
+                }
+            </style>
+            <ol class="breadcrumb" style="background: none !important; padding: 0px; margin: 0px !important;">
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Sản phẩm</a></li>
+                <li class="active">Máy phát điện</li>
+            </ol>
         </div>
-        <div class="col-xs-6 column">
-            <div class="qd-image-box-right" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                <div class="qd-image-box-caption">
-                    MÁY CÔNG CỤ
-                </div>
-            </div>
+        <div class="col-xs-12 column">
+            <h3 style="padding: 30px 0px 40px 0px; margin: 0px; font-weight: bold; font-size: 24px">MÁY PHÁT ĐIỆN</h3>
         </div>
-
-
-        <div class="col-xs-6 column">
-            <div class="qd-image-box-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                <div class="qd-image-box-caption">
-                    MÁY PHÁT ĐIỆN
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 column">
-            <a href="http://google.com">
-                <div class="qd-image-box-right" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
-                        background-size: contain;
-                        background-position: center;">
-                    <div class="qd-image-box-caption">
-                        MÁY CÔNG CỤ
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-xs-6 column">
-            <a href="http://google.com">
-                <div class="qd-image-box-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                    <div class="qd-image-box-caption">
-                        MÁY PHÁT ĐIỆN
-                    </div>
-                </div>
-            </a>
-        </div>
-
-
     </div>
-    <!-- END WIDGET -->
+    <!-- END BREADSCRUM & TITLE -->
+    <div class="row clearfix">
+        <!-- PRODUCTS -->
+        <div class="col-xs-9 column" style="">
+            <div class="row clearfix" id="qd_list_sanpham">
+                <style>
+                    .qd-image-box {
+                        width: 100%;
+                        height: 300px;
+                        position: relative;
+                        border: solid 1px #CACACA;
+                        margin-bottom: 25px;
+                    }
 
+                    #qd_list_sanpham .qd_jscroll_next a {
+
+                    }
+                </style>
+
+                <div class="col-xs-12 column">
+                    <div class="qd-image-box" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+                    </div>
+                </div>
+                <div class="col-xs-12 column" style="padding-bottom: 20px">
+                    <h4>Mô tả sản phẩm</h4>
+                    <hr class="style-seven">
+                    <div>
+                        Nội dung mô tả HTML
+                    </div>
+                </div>
+
+            </div>
+            <!--
+            <div class="row clearfix">
+                <div class="col-xs-12 column" style="text-align: center">
+                    <ul class="pagination">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+            -->
+            <!-- END PRODUCTS -->
+        </div>
+        <!-- PRODUCT CATEGORIES -->
+        <div id="qd_nav_danhmuc" class="col-xs-3 column">
+            <style>
+                #qd_nav_danhmuc ul {
+                    padding: 0;
+                }
+
+
+                #qd_nav_danhmuc ul li {
+                    list-style: none;
+                    line-height: 30px;
+                }
+
+                #qd_nav_danhmuc ul li.active {
+                    font-weight: bold;
+                }
+                #qd_nav_danhmuc .btn{
+                    border-radius: 0px;
+                    color: white;
+                    background-color: #003399;
+                }
+            </style>
+            <div style="border-left: solid 1px #d8d8d8;">
+                <ul style="padding-left: 15px; margin-top: -8px;">
+                    <!-- Alway active for 1st element -->
+                    <li class="active">Model:</li>
+                    <li class="active">Xuất xứ:</li>
+                    <li>Công suất:</li>
+                    <li>Động cơ:</li>
+                    <li>Trọng lượng:</li>
+                    <li>Bảo hành:</li>
+                </ul>
+            </div>
+            <a class="btn btn-primary" style="width: 100%">ĐẶT HÀNG</a>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 10px">TƯ VẤN 097 999 6 234</button>
+        </div>
+        <!-- END PRODUCT CATEGORIES -->
+    </div>
 </div>
 <!-- END CONTENT-->
 <!-- footer -->
@@ -495,6 +522,8 @@
                 </div>
                 <div class="col-xs-3 column">
                     <div>TƯ VẤN - HỖ TRỢ</div>
+                    <br>
+
                     <div style="font-size: 20px">097 999 6 234</div>
                     <div>(Từ 7:00 - 20:00 mỗi ngày)</div>
 
@@ -507,7 +536,7 @@
                     <div style="margin-top: 10px; height: 70px; vertical-align: middle; position: absolute">
                         <style>
                             .social {
-                                margin-left: 20px;
+                                margin-left: 37px;
                                 border-radius: 50% 50% 50% 50%;
                                 width: 25px;
                                 height: 25px;
