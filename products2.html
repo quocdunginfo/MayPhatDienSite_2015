@@ -353,125 +353,245 @@
 
 
 <!-- CONTENT -->
-<div class="container" id="container3" style="margin-top: 65px">
+<div class="container" id="container3" style="margin-top: 10px">
 <!-- WIDGET -->
 <!-- BREADSCRUM & TITLE -->
 <div class="row clearfix">
     <div class="col-xs-12 column">
-        <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Library</a></li>
-            <li class="active">Data</li>
+        <style>
+            .breadcrumb li a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .breadcrumb > li.active, li {
+                color: inherit;
+            }
+        </style>
+        <ol class="breadcrumb" style="background: none !important; padding: 0px; margin: 0px !important;">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Sản phẩm</a></li>
+            <li class="active">Máy phát điện</li>
         </ol>
     </div>
     <div class="col-xs-12 column">
-        <h3>MÁY PHÁT ĐIỆN</h3>
+        <h3 style="padding: 30px 0px 40px 0px; margin: 0px; font-weight: bold; font-size: 24px">MÁY PHÁT ĐIỆN</h3>
     </div>
 </div>
 <!-- END BREADSCRUM & TITLE -->
 <div class="row clearfix">
-    <!-- PRODUCTS -->
-    <div class="col-xs-9 column" style="background-color: #d3d3d3;">
-        <div class="row clearfix">
-            <style>
-                .qd-image-box {
-                    width: 330px;
-                    height: 200px;
-                    position: relative;
-                    border: solid 1px #CACACA;
-                    margin-bottom: 25px;
-                    float: right;
-                }
+<!-- PRODUCTS -->
+<div class="col-xs-9 column" style="">
+    <div class="row clearfix" id="qd_list_sanpham">
+        <style>
+            .qd-image-box {
+                width: 330px;
+                height: 200px;
+                position: relative;
+                border: solid 1px #CACACA;
+                margin-bottom: 25px;
+                float: right;
+            }
 
-                .qd-image-box-caption {
-                    line-height: 40px;
-                    text-align: center;
-                    vertical-align: middle;
-                    width: 100%;
-                    height: 40px;
-                    position: absolute;
-                    bottom: 0px;
-                    left: 0px;
-                    background: rgba(0, 0, 0, 0.7);
-                    color: white;
-                    font-size: 16px;
-                }
-            </style>
-            <div class="col-xs-6 column">
-                <a href="http://google.com">
-                    <div class="qd-image-box" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+            .qd-image-box .qd_xemchitiet {
+                position: absolute;
+                visibility: hidden;
+                opacity: 0;
+                height: 80%;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.6);
+                transition: visibility 0.3s linear, opacity 0.3s linear;
+            }
+
+            .qd-image-box:hover .qd_xemchitiet {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .qd_xemchitiet a, .qd_xemchitiet a:hover {
+                color: white;
+                background-color: #002a80;
+                border: none;
+                border-radius: 0px;
+                height: 40px;
+                line-height: 40px;
+                padding: 0px 15px 0px 15px;
+                top: 35%;
+                left: 103px;
+                position: absolute;
+
+            }
+
+            .qd-image-box-caption {
+                line-height: 40px;
+                text-align: center;
+                vertical-align: middle;
+                width: 100%;
+                height: 40px;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+                font-size: 16px;
+            }
+
+            #qd_list_sanpham .qd_jscroll_next {
+                text-align: center;
+                padding-top: 15px;
+                padding-bottom: 20px;
+            }
+
+            #qd_list_sanpham .qd_jscroll_next a {
+
+            }
+        </style>
+        <script type="text/javascript" src="plugin/jquery.jscroll.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#qd_list_sanpham').jscroll({
+                    loadingHtml: '<img style="width: 25px; height: 25px" src="img/loading.gif" alt="Loading" /> Đang tải...',
+                    padding: 0,
+                    autoTrigger: false,
+                    nextSelector: '.qd_jscroll_next a:last',
+                    callback: function () {
+                    }
+                });
+            });
+
+        </script>
+        <div class="col-xs-6 column">
+            <div class="qd-image-box" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
                     background-size: contain;
                     background-position: center;">
-                        <div class="qd-image-box-caption">
-                            MÁY PHÁT ĐIỆN
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-6 column">
-                <div class="qd-image-box" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                    <div class="qd-image-box-caption">
-                        MÁY CÔNG CỤ
-                    </div>
+                <div class="qd-image-box-caption">
+                    JUHYT6543
                 </div>
-            </div>
-            <div class="col-xs-6 column">
-                <div class="qd-image-box" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                    <div class="qd-image-box-caption">
-                        MÁY CÔNG CỤ
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 column">
-                <div class="qd-image-box" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                    <div class="qd-image-box-caption">
-                        MÁY CÔNG CỤ
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 column">
-                <div class="qd-image-box" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                    <div class="qd-image-box-caption">
-                        MÁY CÔNG CỤ
-                    </div>
+                <div class="qd_xemchitiet">
+                    <a href="http://yahoo.com" type="button" class="btn btn-default">XEM CHI TIẾT</a>
                 </div>
             </div>
         </div>
-        <div class="row clearfix">
-            <div class="col-xs-12 column" style="text-align: center">
-                <ul class="pagination">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
+        <div class="col-xs-6 column">
+            <div class="qd-image-box" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+                <div class="qd-image-box-caption">
+                    VDFE98765
+                </div>
+                <div class="qd_xemchitiet">
+                    <a href="http://yahoo.com" type="button" class="btn btn-default">XEM CHI TIẾT</a>
+                </div>
             </div>
-
-
         </div>
-        <!-- END PRODUCTS -->
+        <div class="col-xs-6 column">
+            <div class="qd-image-box" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+                <div class="qd-image-box-caption">
+                    986FCCC
+                </div>
+                <div class="qd_xemchitiet">
+                    <a href="http://yahoo.com" type="button" class="btn btn-default">XEM CHI TIẾT</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 column">
+            <div class="qd-image-box" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+                <div class="qd-image-box-caption">
+                    GFD453243
+                </div>
+                <div class="qd_xemchitiet">
+                    <a href="http://yahoo.com" type="button" class="btn btn-default">XEM CHI TIẾT</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 column">
+            <div class="qd-image-box" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+                <div class="qd-image-box-caption">
+                    FD34267YH
+                </div>
+                <div class="qd_xemchitiet">
+                    <a href="http://yahoo.com" type="button" class="btn btn-default">XEM CHI TIẾT</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 column">
+            <div class="qd-image-box" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+                <div class="qd-image-box-caption">
+                    KB8765DRT
+                </div>
+                <div class="qd_xemchitiet">
+                    <a href="http://yahoo.com" type="button" class="btn btn-default">XEM CHI TIẾT</a>
+                </div>
+            </div>
+        </div>
+        <div class="qd_jscroll_next">
+            <a href="next-6-items.html">Xem thêm</a>
+        </div>
+
     </div>
-    <!-- PRODUCT CATEGORIES -->
-    <div class="col-xs-3 column" style="background-color: #a6c9e2; border-left: solid 1px red">
-        MÁY PHÁT ĐIỆN
-        <ul>
-            <li>Máy phát điện</li>
-            <li>Máy hàn</li>
-            <li>Máy công cụ</li>
-        </ul>
-    </div>
-    <!-- END PRODUCT CATEGORIES -->
+    <!--
+    <div class="row clearfix">
+        <div class="col-xs-12 column" style="text-align: center">
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+            -->
+    <!-- END PRODUCTS -->
+</div>
+<!-- PRODUCT CATEGORIES -->
+<div id="qd_nav_danhmuc" class="col-xs-3 column" style="border-left: solid 1px #d8d8d8;">
+    <style>
+        #qd_nav_danhmuc ul {
+            padding: 0;
+        }
+
+        #qd_nav_danhmuc a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        #qd_nav_danhmuc a:hover {
+            text-decoration: underline;
+        }
+
+        #qd_nav_danhmuc ul li {
+            list-style: none;
+            line-height: 30px;
+        }
+
+        #qd_nav_danhmuc ul li.active {
+            font-weight: bold;
+        }
+    </style>
+
+    <ul style="margin-top: -8px">
+        <!-- Alway active for 1st element -->
+        <li class="active">DANH MỤC SẢN PHẨM</li>
+        <li class="active"><a href="#">Máy phát điện</a></li>
+        <li>Máy hàn</li>
+        <li>Máy công cụ</li>
+        <li>Sản phẩm khác</li>
+    </ul>
+</div>
+<!-- END PRODUCT CATEGORIES -->
 </div>
 </div>
 <!-- END CONTENT-->
