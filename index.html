@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>MayPhatDienSite_2015</title>
-    <meta name="viewport" content="width=800px, initial-scale=1.0">
+    <meta name="viewport" content="width=960px, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -30,190 +30,49 @@
     <!-- CSS memu -->
     <link rel="stylesheet" href="plugin/cssmenu/styles.css">
     <script src="plugin/cssmenu/script.js"></script>
+    <!-- end CSS memu -->
 
-
-    <!-- SEARCH box -->
-    <!--
-	<style>
-        #apple {
-            height: 28px;
-
-        }
-
-        #apple #search {
-
-        }
-
-        #apple #search input[type="text"] {
-            /*quocdunginfo*/
-            outline: none;
-            /*default*/
-            background: url(plugin/search/search-dark.png) no-repeat 10px 6px #47524e;
-            border: 0 none;
-            font: bold 12px Arial, Helvetica, Sans-serif;
-            color: #d7d7d7;
-            width: 150px;
-            padding: 6px 15px 6px 35px;
-            -webkit-border-radius: 20px;
-            -moz-border-radius: 20px;
-            border-radius: 20px;
-            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-            -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
-            -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
-            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
-            -webkit-transition: all 0.7s ease 0s;
-            -moz-transition: all 0.7s ease 0s;
-            -o-transition: all 0.7s ease 0s;
-            transition: all 0.7s ease 0s;
-        }
-
-        #apple #search input[type="text"]:focus {
-            background: url(plugin/search/search-dark.png) no-repeat 10px 6px #47524e;
-            color: #6a6f75;
-            width: 200px;
-            -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
-            -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
-            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
-            text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-	-->
-    <!-- NEW SEARCH BOX -->
+    <!-- hr tag -->
     <style>
-        input {
-            outline: none;
-        }
-
-        input[type=search] {
-            -webkit-appearance: textfield;
-            -webkit-box-sizing: content-box;
-            font-family: inherit;
-            font-size: 100%;
-        }
-
-        input::-webkit-search-decoration,
-        input::-webkit-search-cancel-button {
-            display: none;
-        }
-
-        input[type=search] {
-            background: #ededed url(img/search-icon.png) no-repeat 9px center;
-            border: solid 1px #ccc;
-            padding: 9px 10px 9px 32px;
-            width: 55px;
-
-            -webkit-border-radius: 10em;
-            -moz-border-radius: 10em;
-            border-radius: 10em;
-
-            -webkit-transition: all .5s;
-            -moz-transition: all .5s;
-            transition: all .5s;
-        }
-
-        input[type=search]:focus {
-            width: 130px;
-            background-color: #fff;
-            border-color: #66CC75;
-
-            -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
-            -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
-            box-shadow: 0 0 5px rgba(109, 207, 246, .5);
-        }
-
-        input:-moz-placeholder {
-            color: #999;
-        }
-
-        input::-webkit-input-placeholder {
-            color: #999;
-        }
-
-        /* Demo 2 */
-        #demo-2 input[type=search] {
-            width: 15px;
-            padding-left: 10px;
-            color: transparent;
-            cursor: pointer;
-        }
-
-        #demo-2 input[type=search]:hover {
-            background-color: #fff;
-        }
-
-        #demo-2 input[type=search]:focus {
-            width: 130px;
-            padding-left: 32px;
-            color: #000;
-            background-color: #fff;
-            cursor: auto;
-        }
-
-        #demo-2 input:-moz-placeholder {
-            color: transparent;
-        }
-
-        #demo-2 input::-webkit-input-placeholder {
-            color: transparent;
-        }
-    </style>
-    <style>
-        hr.style-six {
+        hr {
             height: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.8);
-            /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
+            margin: 0 auto;
+            width: 100%;
         }
 
-        hr.style-seven {
-            height: 0;
-            border-top: 2px solid #dbdbdb;
-            /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
+        hr.long-grey-thin-line {
+            border-top: 1px solid #dbdbdb;
         }
 
         hr.long-red-line {
-            height: 0;
             border-top: 5px solid #db243c;
-            margin: 0;
-            /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
         }
     </style>
-    <!-- CSS memu : FIX layout conflict with bootstrap -->
-    <style>
-        #cssmenu *,
-        #cssmenu *:before,
-        #cssmenu *:after {
-            -webkit-box-sizing: content-box;
-            -moz-box-sizing: content-box;
-            box-sizing: content-box;
-        }
-    </style>
+    <!-- end hr tag -->
 </head>
 
 <body>
 <style>
-    /*Disable responsive - DO NOT SUPPORT mobile device*/
-    /*#container1 {
+    .container {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    #qd_container_content {
         width: 960px !important;
-        max-width: none !important;
-        padding-left: 0px;
-        padding-right: 0px;
-    }*/
-    #container3 {
-        width: 960px !important;
-        max-width: none !important;
-        padding-left: 0px;
-        padding-right: 0px;
     }
 </style>
-<div class="container" id="container1" style="width: 100%; padding: 0;">
+<div class="container" id="qd_container_header">
+    <style>
+        #qd_container_header .row {
+            margin: 0 auto;
+        }
+    </style>
     <!-- LINE RED -->
-    <div class="row clearfix" style="margin: 0; padding: 0">
-        <div class="col-xs-12 column" style="padding: 0">
-            <hr class="long-red-line">
-        </div>
-    </div>
+    <hr class="long-red-line">
     <!-- HEADER -->
-    <div class="row clearfix" style="width: 960px; margin: 0 auto;">
+    <div class="row clearfix" style="width: 960px;">
         <!-- LOGO -->
         <div class="col-xs-3 column" style="padding-top: 5px;">
             <img src="img/logo.jpg" style="max-width: 100%; height:70px">
@@ -221,28 +80,49 @@
         <!-- END LOGO -->
         <div class="col-xs-9 column">
             <!-- Search -->
-            <div id="qd_search" class="pull-right" style="margin-top: 10px">
+            <div id="qd_search" class="pull-right">
                 <style>
-                    #qd_search > form > div.qd-result-wrapper {
-                        display: none;
-                        border-radius: 20px;
+                    #qd_search {
+                        margin-top: 10px;
                     }
-                    #qd_search > form:hover > div.qd-result-wrapper {
-                        display: block;
-                    }
+
                     .qd-result-item {
                         padding: 15px;
                     }
+
                     .qd-result-item a {
                         text-decoration: none !important;
                         color: white;
                     }
                 </style>
                 <form action="#" method="get" style="position: relative">
-                    <img src="img/search-icon-hi.png" style="height: 20px; width: 20px; position: absolute; top: 7px; right: 10px; opacity: 0.6">
-                    <input id="qd-search-box" class="form-control" type="text" style="width: 200px; padding-right: 40px" placeholder="search...">
-                    <div class="qd-result-wrapper"
-                         style="z-index: 1000; right: 0px; position: absolute; width: 300px; height: auto; background-color: #000000; opacity: 0.8; color: white">
+                    <img src="img/search-icon-hi.png"
+                         style="height: 20px; width: 20px; position: absolute; top: 7px; right: 10px; opacity: 0.6">
+                    <input id="qd-search-box" class="form-control" type="text" style="width: 200px; padding-right: 40px"
+                           placeholder="search...">
+
+                    <div id="qd-result-wrapper">
+                        <style>
+                            #qd-result-wrapper {
+                                z-index: 1000;
+                                right: 0px;
+                                position: absolute;
+                                width: 300px;
+                                height: auto;
+                                background-color: #000000;
+                                opacity: 0.8;
+                                color: white;
+                                border-radius: 20px;
+                            }
+
+                            #qd_search > form > #qd-result-wrapper {
+                                display: none;
+                            }
+
+                            #qd_search > form:hover > #qd-result-wrapper {
+                                display: block;
+                            }
+                        </style>
                         <div class="qd-result-item">
                             <a href="">Match 1 không</a>
                         </div>
@@ -257,8 +137,29 @@
             <!-- End search -->
             <!-- MENU -->
             <div class="row clearfix">
-                <div class="col-xs-12 column" style="padding-left: 0px">
-                    <div id='cssmenu' style="height: 30px; right: -20px">
+                <div class="col-xs-12 column">
+                    <div id='cssmenu'>
+                        <!-- CSS memu : FIX layout padding conflict with bootstrap -->
+                        <style>
+                            #cssmenu *,
+                            #cssmenu *:before,
+                            #cssmenu *:after {
+                                -webkit-box-sizing: content-box;
+                                -moz-box-sizing: content-box;
+                                box-sizing: content-box;
+                            }
+                        </style>
+                        <!-- end CSS memu : FIX layout conflict with bootstrap -->
+                        <style>
+                            #cssmenu {
+                                height: 30px;
+                                right: -35px;
+                            }
+
+                            #cssmenu ul li span {
+                                font-weight: bold;
+                            }
+                        </style>
                         <ul>
                             <li><a href='#'><span>TRANG CHỦ</span></a></li>
                             <li class='active'><a href='products2.html'><span>DANH MỤC SẢN PHẨM</span></a>
@@ -283,7 +184,7 @@
     </div>
     <!-- end header -->
     <!-- BANNER -->
-    <div class="row clearfix" style="padding: 0; margin: 0 auto">
+    <div class="row clearfix">
         <div class="col-xs-12 column" style="padding: 0">
             <style>
                 .carousel-indicators li {
@@ -302,7 +203,7 @@
                     background-color: slategray;
                 }
             </style>
-            <hr class="style-seven" style="width: 100%; margin-top: 4px; margin-bottom: 12px;"/>
+            <hr class="long-grey-thin-line" style="margin-top: 4px; margin-bottom: 12px;"/>
             <!-- BANNER -->
             <div id="myCarousel" class="carousel slide" data-ride="carousel" style="min-width: 960px">
                 <!-- Indicators -->
@@ -312,23 +213,26 @@
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
+                <style>
+                    .carousel-inner > .item > img {
+                        width: 100%;
+                    }
+                </style>
                 <div class="carousel-inner">
-                    <div class="item active"><img src="img/slide1.jpg" style="width:100%"
+
+                    <div class="item active"><img src="img/slide1.jpg"
                                                   alt="First slide">
 
 
                     </div>
-                    <div class="item"><img src="img/slide2.jpg" style="width:100%" data-src=""
+                    <div class="item"><img src="img/slide2.jpg" data-src=""
                                            alt="Second    slide">
 
 
                     </div>
                     <div class="item">
-                        <img src="img/slide3.jpg" style="width:100%" data-src=""
-                             alt="Third slide">
-
-
-                    </div>
+                        <img src="img/slide3.jpg" data-src=""
+                             alt="Third slide"></div>
                 </div>
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="visibility: hidden">
                 <span
@@ -344,28 +248,24 @@
     <!-- END BANNER -->
 
 </div>
-
-
 <!-- CONTENT -->
-<div class="container" id="container3" style="margin-top: 65px">
+<div class="container" id="qd_container_content" style="margin-top: 65px">
     <!-- WIDGET -->
     <div class="row clearfix">
         <style>
-            .qd-image-box-left {
+            .qd-image-box {
                 width: 449px;
                 height: 280px;
                 position: relative;
                 border: solid 1px #CACACA;
                 margin-bottom: 65px;
+            }
+
+            .qd-left {
                 float: right;
             }
 
             .qd-image-box-right {
-                width: 449px;
-                height: 280px;
-                position: relative;
-                border: solid 1px #CACACA;
-                margin-bottom: 65px;
                 float: left;
             }
 
@@ -385,7 +285,7 @@
         </style>
         <div class="col-xs-6 column">
             <a href="http://google.com">
-                <div class="qd-image-box-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+                <div class="qd-image-box qd-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
                     background-size: contain;
                     background-position: center;">
                     <div class="qd-image-box-caption">
@@ -395,7 +295,7 @@
             </a>
         </div>
         <div class="col-xs-6 column">
-            <div class="qd-image-box-right" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
+            <div class="qd-image-box qd-right" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
                     background-size: contain;
                     background-position: center;">
                 <div class="qd-image-box-caption">
@@ -406,7 +306,7 @@
 
 
         <div class="col-xs-6 column">
-            <div class="qd-image-box-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+            <div class="qd-image-box qd-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
                     background-size: contain;
                     background-position: center;">
                 <div class="qd-image-box-caption">
@@ -416,7 +316,7 @@
         </div>
         <div class="col-xs-6 column">
             <a href="http://google.com">
-                <div class="qd-image-box-right" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
+                <div class="qd-image-box qd-right" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
                         background-size: contain;
                         background-position: center;">
                     <div class="qd-image-box-caption">
@@ -428,7 +328,7 @@
 
         <div class="col-xs-6 column">
             <a href="http://google.com">
-                <div class="qd-image-box-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+                <div class="qd-image-box qd-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
                     background-size: contain;
                     background-position: center;">
                     <div class="qd-image-box-caption">
@@ -445,13 +345,10 @@
 </div>
 <!-- END CONTENT-->
 <!-- footer -->
-<div class="container" id="container2" style="width: auto; background-color: #4d4d4d; padding: 0; color: white">
+<div class="container" id="qd_container_footer" style="background-color: #4d4d4d; color: white;">
     <!-- LINE RED -->
-    <div class="row clearfix" style="margin: 0;">
-        <div class="col-xs-12 column" style="padding: 0">
-            <hr class="long-red-line">
-        </div>
-    </div>
+    <hr class="long-red-line">
+
     <div class="row clearfix"
          style="color: white; width: 960px; margin: auto;">
         <div class="col-xs-12 column">
@@ -545,7 +442,7 @@
     <!-- Part 6 Copyright Statement -->
     <div class="row clearfix" style="width: 960px; margin: 0 auto">
         <div class="col-xs-12 column">
-            <hr class="style-six" style="width: 100%; margin: 0 auto"/>
+            <hr class="style-six"/>
             <div style="text-align: center; padding-top: 30px; padding-bottom: 30px">
                 <b>CÔNG TY TNHH MÁY PHÁT ĐIỆN THẢO NGUYÊN</b>
                 <br>
