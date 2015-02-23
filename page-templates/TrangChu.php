@@ -39,62 +39,24 @@ get_header();
                     font-size: 18px;
                 }
             </style>
-            <div class="col-xs-6 column">
-                <a href="http://google.com">
-                    <div class="qd-image-box qd-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
+            <?php
+            $count = 0;
+            foreach (QdProductCat::all(array('order' => '`order` asc')) as $item):
+            ?>
+                <div class="col-xs-6 column">
+                    <a href="<?=$item->getPermalink()?>">
+                        <div class="qd-image-box <?=$count%2==0?'qd-left':'qd-right'?>" style="background: url(<?=$item->avatar?>); background-repeat: no-repeat;
                     background-size: contain;
                     background-position: center;">
-                        <div class="qd-image-box-caption">
-                            MÁY PHÁT ĐIỆN
+                            <div class="qd-image-box-caption">
+                                <?=$item->name?>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-6 column">
-                <div class="qd-image-box qd-right" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                    <div class="qd-image-box-caption">
-                        MÁY CÔNG CỤ
-                    </div>
+                    </a>
                 </div>
-            </div>
-
-
-            <div class="col-xs-6 column">
-                <div class="qd-image-box qd-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                    <div class="qd-image-box-caption">
-                        MÁY PHÁT ĐIỆN
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 column">
-                <a href="http://google.com">
-                    <div class="qd-image-box qd-right" style="background: url(img/may_cong_nghiep_3.jpg); background-repeat: no-repeat;
-                        background-size: contain;
-                        background-position: center;">
-                        <div class="qd-image-box-caption">
-                            MÁY CÔNG CỤ
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xs-6 column">
-                <a href="http://google.com">
-                    <div class="qd-image-box qd-left" style="background: url(img/may_cong_nghiep.jpg); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                        <div class="qd-image-box-caption">
-                            MÁY PHÁT ĐIỆN
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-
+            <?php
+            endforeach;
+            ?>
         </div>
         <!-- END WIDGET -->
 
