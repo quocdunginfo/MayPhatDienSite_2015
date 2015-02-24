@@ -180,6 +180,7 @@ $slider = Qdmvc_Helper::getSlider(71);
                             #cssmenu .current-menu-item a {
                                 font-weight: bold;
                             }
+                            li {list-style: none}/*To prevent black dot under menu*/
                         </style>
                         <?php get_sidebar('main-menu'); ?>
                         <!--
