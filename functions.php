@@ -31,7 +31,7 @@ function mpd2015_widgets_init() {
         array(
             'name'          => __( 'Primary Sidebar', 'twentyfourteen' ),
             'id'            => 'sidebar-1',
-            'description'   => __( 'Main sidebar that appears on the left.', 'twentyfourteen' ),
+            'description'   => __( 'Main menu', 'twentyfourteen' ),
             //'before_widget' => '<aside id="%1$s" class="widget %2$s" style="width: 250px; margin-right: 100px">',
             //'before_widget' => '<div id="%1$s" class="widget %2$s">',
             //'after_widget'  => '</div>',
@@ -39,28 +39,12 @@ function mpd2015_widgets_init() {
             //'after_title'   => '</h5>'
         )
     );
-    register_sidebar(
-        array(
-            'name'          => __( 'Footer Sidebar', 'twentyfourteen2' ),
-            'id'            => 'sidebar-2',
-            'description'   => __( 'Footer sidebar that appears on the left.', 'twentyfourteen2' ),
-            //'before_widget' => '<aside id="%1$s" class="widget %2$s" style="width: 250px; margin-right: 100px">',
-            //'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            //'after_widget'  => '</div>',
-            //'before_title'  => '<h5 class="widget-title">',
-            //'after_title'   => '</h5>'
-        )
-    );
+
     register_sidebar(
         array(
             'name'          => __( 'Right menu - Gioi thieu', 'twentyfourteen3' ),
             'id'            => 'sidebar-right-menu',
-            'description'   => __( 'Introduction layout - Right menu - Gioi thieu', 'twentyfourteen3' ),
-            //'before_widget' => '<aside id="%1$s" class="widget %2$s" style="width: 250px; margin-right: 100px">',
-            //'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            //'after_widget'  => '</div>',
-            //'before_title'  => '<h5 class="widget-title">',
-            //'after_title'   => '</h5>'
+            'description'   => __( 'Introduction layout - Right menu - Gioi thieu', 'twentyfourteen3' )
         )
     );
     register_sidebar(
@@ -89,6 +73,27 @@ function mpd2015_widgets_init() {
             'name'          => __( 'Footer menu 2', 'twentyfourteen7' ),
             'id'            => 'sidebar-footer-menu-2',
             'description'   => __( 'Footer menu 2', 'twentyfourteen7' ),
+        )
+    );
+    register_sidebar(
+        array(
+            'name'          => __( 'Footer menu 3', 'twentyfourteen8' ),
+            'id'            => 'sidebar-footer-menu-3',
+            'description'   => __( 'Custom HTML text', 'twentyfourteen8' ),
+        )
+    );
+    register_sidebar(
+        array(
+            'name'          => __( 'Footer menu 4', 'twentyfourteen81' ),
+            'id'            => 'sidebar-footer-menu-4',
+            'description'   => __( 'Social icon', 'twentyfourteen81' ),
+        )
+    );
+    register_sidebar(
+        array(
+            'name'          => __( 'Footer bottom', 'twentyfourteen9' ),
+            'id'            => 'sidebar-footer-bottom',
+            'description'   => __( 'Footer bottom', 'twentyfourteen9' ),
         )
     );
 }
