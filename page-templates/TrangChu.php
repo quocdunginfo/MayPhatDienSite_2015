@@ -2,6 +2,7 @@
 /*
 Template Name: TrangChu
 */
+
 get_header();
 ?>
     <!-- CONTENT -->

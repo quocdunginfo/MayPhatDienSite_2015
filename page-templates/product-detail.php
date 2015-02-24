@@ -14,6 +14,9 @@ get_header();
         <div class="row clearfix">
             <div class="col-xs-12 column">
                 <style>
+                    .breadcrumb {
+                        font-size: 12px;/*14px fail!fuck*/
+                    }
                     .breadcrumb li a {
                         color: inherit;
                         text-decoration: none;
@@ -22,11 +25,22 @@ get_header();
                     .breadcrumb > li.active, li {
                         color: inherit;
                     }
+
+
                 </style>
+                <?php
+                $bc = $obj->getBreadcrumbs();
+                //var_dump($bc);
+                ?>
                 <ol class="breadcrumb" style="background: none !important; padding: 0px; margin: 0px !important;">
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Sản phẩm</a></li>
-                    <li class="active">Máy phát điện</li>
+                    <?php
+
+                    foreach ($bc as $item):
+                    ?>
+                        <li><a href="<?=$item['url']?>"><?=$item['name']?></a></li>
+                    <?php
+                    endforeach;
+                    ?>
                 </ol>
             </div>
             <div class="col-xs-12 column">

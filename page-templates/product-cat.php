@@ -4,7 +4,15 @@ Template Name: Loại sản phẩm
 */
 //data
 $obj = QdProductCat::first($_GET['id']);
-
+if(isset($_GET['product-offset']))
+{
+    require_once('product-cat-loadmore.php');
+    exit(0);
+}
+else
+{
+    //continue
+}
 get_header();
 ?>
     <!-- CONTENT -->
@@ -14,6 +22,9 @@ get_header();
     <div class="row clearfix">
         <div class="col-xs-12 column">
             <style>
+                .breadcrumb {
+                    font-size: 12px;/*14px fail!fuck*/
+                }
                 .breadcrumb li a {
                     color: inherit;
                     text-decoration: none;
@@ -22,11 +33,21 @@ get_header();
                 .breadcrumb > li.active, li {
                     color: inherit;
                 }
+
+
             </style>
+            <?php
+            $bc = $obj->getBreadcrumbs();
+            ?>
             <ol class="breadcrumb" style="background: none !important; padding: 0px; margin: 0px !important;">
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Sản phẩm</a></li>
-                <li class="active">Máy phát điện</li>
+                <?php
+
+                foreach ($bc as $item):
+                    ?>
+                    <li><a href="<?=$item['url']?>"><?=$item['name']?></a></li>
+                <?php
+                endforeach;
+                ?>
             </ol>
         </div>
         <div class="col-xs-12 column">
@@ -119,29 +140,9 @@ get_header();
 
                 </script>
                 <?php
-                //loop all Product per Cat
-                foreach(QdProductCat::first($_GET['id'])->getProducts() as $item):
+                require_once('product-cat-loadmore.php');
 
                 ?>
-                <div class="col-xs-6 column">
-                    <div class="qd-image-box" style="background: url(<?=$item->avatar?>); background-repeat: no-repeat;
-                        background-size: contain;
-                        background-position: center;">
-                        <div class="qd-image-box-caption">
-                            <?=$item->name?>
-                        </div>
-                        <div class="qd_xemchitiet">
-                            <a href="<?=$item->getPermalink()?>" type="button" class="btn btn-default">XEM CHI TIẾT</a>
-                        </div>
-                    </div>
-                </div>
-                <?php
-                endforeach;
-                ?>
-
-                <div class="qd_jscroll_next">
-                    <a href="next-6-items.html">Xem thêm</a>
-                </div>
 
             </div>
         </div>

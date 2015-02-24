@@ -9,8 +9,13 @@
  * @since Twenty Fourteen 1.0
  */
 $temp_p = get_template_directory_uri().'/';
-?>
+$slider_html = do_shortcode("[metaslider id=71]");
 
+$html = str_get_html($slider_html);
+$ret = $html->find('img');
+$slider_url_img = array();
+//var_dump($ret);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -227,13 +232,22 @@ $temp_p = get_template_directory_uri().'/';
             </style>
             <hr class="long-grey-thin-line" style="margin-top: 4px; margin-bottom: 12px;"/>
             <!-- BANNER -->
-            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="min-width: 960px">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="min-width: 960px;">
                 <!-- Indicators -->
 
                 <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <?php
+                    for($i=0;$i<count($ret);$i++):
+                    ?>
+
+                    <li data-target="#myCarousel" data-slide-to="<?=$i?>" class="<?=$i==0?'active':''?>"></li>
+
+                    <?php
+                    endfor;
+                    ?>
+                    <!--
                     <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li> -->
                 </ol>
                 <style>
                     .carousel-inner > .item > img {
@@ -242,11 +256,16 @@ $temp_p = get_template_directory_uri().'/';
                 </style>
                 <div class="carousel-inner">
 
-                    <div class="item active"><img src="img/slide1.jpg"
-                                                  alt="First slide">
-
-
+                    <?php
+                    foreach($ret as $item):
+                    ?>
+                    <div class="item active">
+                        <img src="<?=$item->attr['src']?>" data-src="" alt="<?=$item->attr['alt']?>">
                     </div>
+                    <?php
+                    endforeach;
+                    ?>
+                    <!--
                     <div class="item"><img src="img/slide2.jpg" data-src=""
                                            alt="Second    slide">
 
@@ -255,7 +274,9 @@ $temp_p = get_template_directory_uri().'/';
                     <div class="item">
                         <img src="img/slide3.jpg" data-src=""
                              alt="Third slide"></div>
+                             -->
                 </div>
+
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="visibility: hidden">
                 <span
                     class="glyphicon glyphicon-chevron-left"></span></a>
