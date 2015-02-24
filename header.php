@@ -9,13 +9,9 @@
  * @since Twenty Fourteen 1.0
  */
 $temp_p = get_template_directory_uri().'/';
-$slider_html = do_shortcode("[metaslider id=71]");
-
-$html = str_get_html($slider_html);
-$ret = $html->find('img');
-$slider_url_img = array();
-//var_dump($ret);
+$slider = Qdmvc_Helper::getSlider(71);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +21,7 @@ $slider_url_img = array();
     <meta name="viewport" content="width=960px, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <?php wp_head(); ?>
 
     <!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
     <!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
@@ -43,7 +39,8 @@ $slider_url_img = array();
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- USE WP instead -->
+    <!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
 
@@ -69,7 +66,7 @@ $slider_url_img = array();
         }
     </style>
     <!-- end hr tag -->
-    <?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -232,16 +229,14 @@ $slider_url_img = array();
             </style>
             <hr class="long-grey-thin-line" style="margin-top: 4px; margin-bottom: 12px;"/>
             <!-- BANNER -->
-            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="min-width: 960px;">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="min-width: 960px; <?=count($slider)==0?'display: none;':''?>">
                 <!-- Indicators -->
 
                 <ol class="carousel-indicators">
                     <?php
-                    for($i=0;$i<count($ret);$i++):
+                    for($i=0;$i<count($slider);$i++):
                     ?>
-
                     <li data-target="#myCarousel" data-slide-to="<?=$i?>" class="<?=$i==0?'active':''?>"></li>
-
                     <?php
                     endfor;
                     ?>
@@ -255,28 +250,17 @@ $slider_url_img = array();
                     }
                 </style>
                 <div class="carousel-inner">
-
+                    <!--have 1 item has active class when begin or slider will cause error -->
                     <?php
-                    foreach($ret as $item):
+                    $count =0;
+                    foreach($slider as $item):
                     ?>
-                    <div class="item active">
-                        <img src="<?=$item->attr['src']?>" data-src="" alt="<?=$item->attr['alt']?>">
-                    </div>
+                    <div class="item <?=$count==0?'active':''?>"><img src="<?=$item->attr['src']?>" alt="First slide"></div>
                     <?php
+                    $count++;
                     endforeach;
                     ?>
-                    <!--
-                    <div class="item"><img src="img/slide2.jpg" data-src=""
-                                           alt="Second    slide">
-
-
-                    </div>
-                    <div class="item">
-                        <img src="img/slide3.jpg" data-src=""
-                             alt="Third slide"></div>
-                             -->
                 </div>
-
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="visibility: hidden">
                 <span
                     class="glyphicon glyphicon-chevron-left"></span></a>
