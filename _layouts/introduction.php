@@ -8,17 +8,14 @@
 class QdCPT_IntroductionLayout
 {
     private $page = null;
-
     function __construct($page)
     {
         $this->page = $page;
     }
-
-    public function render()
+    public function placeHolder1()
     {
-        get_header();
         // Start the Loop.
-        while (have_posts()) : the_post();
+        if (have_posts()) : the_post();
             ?>
             <div class="container" id="qd_container_content" style="margin-top: 10px;">
                 <!-- WIDGET -->
@@ -98,7 +95,13 @@ class QdCPT_IntroductionLayout
                 </div>
             </div>
         <?php
-        endwhile;
-        get_footer();
+        endif;
+    }
+    public function render()
+    {
+        QdT_Library::loadLayout('root');
+
+        $layout = new QdT_Layout_Root($this);
+        $layout->render();
     }
 }

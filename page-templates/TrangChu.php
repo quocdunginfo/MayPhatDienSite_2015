@@ -1,67 +1,86 @@
 <?php
+
 /*
 Template Name: TrangChu
 */
 
-get_header();
-?>
-    <!-- CONTENT -->
-    <div class="container" id="qd_container_content" style="margin-top: 65px">
-        <!-- WIDGET -->
-        <div class="row clearfix">
-            <style>
-                .qd-image-box {
-                    width: 449px;
-                    height: 280px;
-                    position: relative;
-                    border: solid 1px #CACACA;
-                    margin-bottom: 65px;
-                }
+class QdT_PageT_TrangChu
+{
+    function __construct()
+    {
 
-                .qd-left {
-                    float: right;
-                }
+    }
+    public function placeHolder2()
+    {
+        $t = array();
+        array_push($t, array('name' => 'Trang chủ', 'url' => get_home_url()));
+        return $t;
+    }
+    public function placeHolder1()
+    {
+        ?>
+        <!-- CONTENT -->
+        <div class="container" id="qd_container_content" style="margin-top: 55px">
+            <!-- WIDGET -->
+            <div class="row clearfix">
+                <style>
+                    .qd-image-box {
+                        width: 449px;
+                        height: 280px;
+                        position: relative;
+                        border: solid 1px #CACACA;
+                        margin-bottom: 65px;
+                    }
 
-                .qd-image-box-right {
-                    float: left;
-                }
+                    .qd-left {
+                        float: right;
+                    }
 
-                .qd-image-box-caption {
-                    line-height: 60px;
-                    text-align: center;
-                    vertical-align: middle;
-                    width: 100%;
-                    height: 55px;
-                    position: absolute;
-                    bottom: 0px;
-                    left: 0px;
-                    background: rgba(0, 0, 0, 0.7);
-                    color: white;
-                    font-size: 18px;
-                }
-            </style>
-            <?php
-            $count = 0;
-            foreach (QdProductCat::all(array('order' => '`order` asc')) as $item):
-            ?>
-                <div class="col-xs-6 column">
-                    <a href="<?=$item->getPermalink()?>">
-                        <div class="qd-image-box <?=$count%2==0?'qd-left':'qd-right'?>" style="background: url(<?=$item->avatar?>); background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;">
-                            <div class="qd-image-box-caption">
-                                <?=$item->name?>
+                    .qd-image-box-right {
+                        float: left;
+                    }
+
+                    .qd-image-box-caption {
+                        line-height: 60px;
+                        text-align: center;
+                        vertical-align: middle;
+                        width: 100%;
+                        height: 55px;
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0px;
+                        background: rgba(0, 0, 0, 0.7);
+                        color: white;
+                        font-size: 18px;
+                    }
+                </style>
+                <?php
+                $count = 0;
+                foreach (QdProductCat::all(array('order' => '`order` asc')) as $item):
+                    ?>
+                    <div class="col-xs-6 column">
+                        <a href="<?= $item->getPermalink() ?>">
+                            <div class="qd-image-box <?= $count % 2 == 0 ? 'qd-left' : 'qd-right' ?>"
+                                 style="background: url(<?= $item->avatar ?>); background-repeat: no-repeat;
+                                     background-size: contain;
+                                     background-position: center;">
+                                <div class="qd-image-box-caption">
+                                    <?= $item->name ?>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            <?php
-            endforeach;
-            ?>
-        </div>
-        <!-- END WIDGET -->
+                        </a>
+                    </div>
+                <?php
+                endforeach;
+                ?>
+            </div>
+            <!-- END WIDGET -->
 
-    </div>
-    <!-- END CONTENT-->
-<?php
-get_footer();
+        </div>
+        <!-- END CONTENT-->
+    <?php
+    }
+}
+QdT_Library::loadLayout('root');
+$obj = new QdT_Layout_Root(new QdT_PageT_TrangChu());
+$obj->render();

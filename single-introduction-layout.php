@@ -17,6 +17,6 @@ class QdCPT_TrangGioiThieu
         get_sidebar('right-menu');
     }
 }
-
+QdT_Library::loadLayout('introduction');
 $trang_gioithieu = new QdCPT_IntroductionLayout(new QdCPT_TrangGioiThieu());
 $trang_gioithieu->render();

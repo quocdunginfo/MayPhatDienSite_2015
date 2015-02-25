@@ -5,7 +5,7 @@
  * Date: 23/02/2015
  * Time: 10:19 AM
  */
-class QdCPT_TrangTuyenDung
+class QdT_TrangTuyenDung
 {
     function __construct()
     {
@@ -16,6 +16,6 @@ class QdCPT_TrangTuyenDung
         get_sidebar('right-menu-tuyendung');
     }
 }
-
-$QdCPT_TrangTuyenDung = new QdCPT_IntroductionLayout(new QdCPT_TrangTuyenDung());
+QdT_Library::loadLayout('introduction');
+$QdCPT_TrangTuyenDung = new QdCPT_IntroductionLayout(new QdT_TrangTuyenDung());
 $QdCPT_TrangTuyenDung->render();

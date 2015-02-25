@@ -107,5 +107,4 @@ add_action( 'widgets_init', 'mpd2015_widgets_init' );
     'introduction_layout_menu' => 'Introduction Layout menu'
 ) );*/
 
-//layout
-require_once('/_layouts/introduction.php');
+require_once('_helpers/index.php');
