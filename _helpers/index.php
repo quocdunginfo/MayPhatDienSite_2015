@@ -26,7 +26,7 @@ class QdT_Library{
     {
         require_once(__DIR__.'/'.self::$pageT_loc.$name.'.php');
     }
-    public function  getNoneLink()
+    public static function  getNoneLink()
     {
         return 'javascript:void(0)';
     }

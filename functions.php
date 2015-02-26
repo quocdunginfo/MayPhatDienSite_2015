@@ -96,6 +96,13 @@ function mpd2015_widgets_init() {
             'description'   => __( 'Footer bottom', 'twentyfourteen9' ),
         )
     );
+    register_sidebar(
+        array(
+            'name'          => __( 'Right menu - Product Cat', 'twentyfourteen10' ),
+            'id'            => 'sidebar-right-menu-productcat',
+            'description'   => __( 'Right menu - Product Cat', 'twentyfourteen10' ),
+        )
+    );
 }
 add_action( 'widgets_init', 'mpd2015_widgets_init' );
 

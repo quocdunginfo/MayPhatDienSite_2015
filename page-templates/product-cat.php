@@ -7,31 +7,27 @@ if(isset($_GET['product-offset']))
     QdT_Library::loadPageT('product-cat-loadmore');
     exit(0);
 }
-class QdT_PageT_ProductCat{
+QdT_Library::loadLayout('root');
+class QdT_PageT_ProductCat extends QdT_Layout_Root {
     private $obj = null;
     function __construct()
     {
         $this->obj = QdProductCat::first($_GET['id']);
     }
-    public function placeHolder2()
+    protected function getBreadcrumbs()
     {
         return $this->obj->getBreadcrumbs();
     }
-    public function placeHolder1()
+    protected function getContentTitle()
+    {
+        return $this->obj->name;
+    }
+    protected function getContent()
     {
 
         ?>
         <!-- CONTENT -->
         <div class="container" id="qd_container_content" style="margin-top: 10px">
-            <!-- WIDGET -->
-            <div class="row clearfix">
-                <div class="col-xs-12 column">
-                    <h3 style="padding: 30px 0px 40px 0px; margin: 0px; font-weight: bold; font-size: 24px">
-                        <?=$this->obj->name?>
-                    </h3>
-                </div>
-            </div>
-
             <div class="row clearfix">
                 <!-- PRODUCTS -->
                 <div class="col-xs-9 column" style="">
@@ -149,11 +145,13 @@ class QdT_PageT_ProductCat{
                     <div style="border: solid 1px #ffffff; border-left: solid 1px #d8d8d8;"><!-- css of border-top very important -->
                         <ul style="margin-top: -10px">
                             <!-- Alway active for 1st element -->
+                            <?=get_sidebar('right-menu-productcat')?>
+                            <!--
                             <li class="active">DANH MỤC SẢN PHẨM</li>
                             <li class="active"><a href="#">Máy phát điện</a></li>
                             <li>Máy hàn</li>
                             <li>Máy công cụ</li>
-                            <li>Sản phẩm khác</li>
+                            <li>Sản phẩm khác</li> -->
                         </ul>
                     </div>
 
@@ -166,5 +164,4 @@ class QdT_PageT_ProductCat{
     <?php
     }
 }
-QdT_Library::loadLayout('root');
-(new QdT_Layout_Root(new QdT_PageT_ProductCat()))->render();
+(new QdT_PageT_ProductCat())->render();

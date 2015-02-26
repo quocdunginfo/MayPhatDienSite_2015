@@ -3,22 +3,20 @@
 /*
 Template Name: Chi tiết Sản phẩm
 */
-
-class QdT_PageT_ProductDetail
+QdT_Library::loadLayout('root');
+class QdT_PageT_ProductDetail extends QdT_Layout_Root
 {
     private $obj = null;
-
-    public function placeHolder2()
-    {
-        return $this->obj->getBreadcrums();
-    }
 
     function __construct()
     {
         $this->obj = QdProduct::first($_GET['id']);
     }
-
-    public function placeHolder1()
+    protected function getContentTitle()
+    {
+        return $this->obj->name;
+    }
+    public function getContent()
     {
         ?>
         <!-- CONTENT -->
@@ -41,7 +39,7 @@ class QdT_PageT_ProductDetail
 
                         <div class="col-xs-12 column">
                             <div class="qd-image-box"
-                                 style="background: url(<?= $obj->avatar ?>); background-repeat: no-repeat;
+                                 style="background: url(<?= $this->obj->avatar ?>); background-repeat: no-repeat;
                                      background-size: contain;
                                      background-position: center;">
                             </div>
@@ -50,7 +48,7 @@ class QdT_PageT_ProductDetail
                             <h4 style="font-size: 24px; margin: 0;">Mô tả sản phẩm</h4>
                             <hr class="long-grey-thin-line" style="margin-top: 10px; margin-bottom: 10px">
                             <div>
-                                <?= $obj->mota1 ?>
+                                <?= $this->obj->mota1 ?>
                             </div>
                         </div>
 
@@ -112,12 +110,12 @@ class QdT_PageT_ProductDetail
                         </style>
                         <ul style="padding-left: 15px; margin-top: -10px">
                             <!-- Alway active for 1st element -->
-                            <li>Model: <?= $obj->code ?></li>
-                            <li>Xuất xứ: <?= $obj->xuatxu ?></li>
-                            <li>Công suất: <?= $obj->congsuat ?></li>
-                            <li>Động cơ: <?= $obj->dongco ?></li>
-                            <li>Trọng lượng: <?= $obj->trongluong ?></li>
-                            <li>Bảo hành: <?= $obj->baohanh ?></li>
+                            <li>Model: <?= $this->obj->code ?></li>
+                            <li>Xuất xứ: <?= $this->obj->xuatxu ?></li>
+                            <li>Công suất: <?= $this->obj->congsuat ?></li>
+                            <li>Động cơ: <?= $this->obj->dongco ?></li>
+                            <li>Trọng lượng: <?= $this->obj->trongluong ?></li>
+                            <li>Bảo hành: <?= $this->obj->baohanh ?></li>
                         </ul>
                     </div>
                     <a class="btn btn-primary">ĐẶT HÀNG</a>
@@ -133,7 +131,4 @@ class QdT_PageT_ProductDetail
     <?php
     }
 }
-
-QdT_Library::loadLayout('root');
-$obj = new QdT_Layout_Root(new QdT_PageT_ProductDetail());
-$obj->render();
+(new QdT_PageT_ProductDetail())->render();

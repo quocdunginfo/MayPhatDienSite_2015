@@ -5,51 +5,26 @@
  * Date: 23/02/2015
  * Time: 11:30 AM
  */
-class QdCPT_IntroductionLayout
+QdT_Library::loadLayout('root');
+class QdCPT_IntroductionLayout extends QdT_Layout_Root
 {
-    private $page = null;
-    function __construct($page)
+    function __construct()
     {
-        $this->page = $page;
+
     }
-    public function placeHolder1()
+    protected function getBreadcrumbs()
     {
-        // Start the Loop.
-        if (have_posts()) : the_post();
+        return $this->page->getBreadcrumbs();
+    }
+    protected function getContent()
+    {
             ?>
             <div class="container" id="qd_container_content" style="margin-top: 10px;">
                 <!-- WIDGET -->
-                <!-- BREADSCRUM & TITLE -->
-                <div class="row clearfix">
-                    <div class="col-xs-12 column">
-                        <style>
-                            .breadcrumb li a {
-                                color: inherit;
-                                text-decoration: none;
-                            }
-
-                            .breadcrumb > li.active, li {
-                                color: inherit;
-                            }
-                        </style>
-                        <ol class="breadcrumb"
-                            style="background: none !important; padding: 0px; margin: 0px !important;">
-                            <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Sản phẩm</a></li>
-                            <li class="active">Máy phát điện</li>
-                        </ol>
-                    </div>
-                    <div class="col-xs-12 column">
-                        <h3 style="padding: 30px 0px 40px 0px; margin: 0px; font-weight: bold; font-size: 24px">
-                            <?= the_title(); ?>
-                        </h3>
-                    </div>
-                </div>
-                <!-- END BREADSCRUM & TITLE -->
                 <div class="row clearfix">
                     <!-- CONTENT -->
                     <div class="col-xs-9 column">
-                        <?= the_content() ?>
+                        <?= $this->getContentMain() ?>
                     </div>
                     <!-- END CONTENT -->
                     <!-- PRODUCT CATEGORIES -->
@@ -79,7 +54,7 @@ class QdCPT_IntroductionLayout
                                 list-style: none !important;
                             }
                         </style>
-                        <?= $this->page->placeHolder1() ?>
+                        <?= $this->getMenu() ?>
                         <!--
                         <ul style="margin-top: -8px">
                             //Alway active for 1st element
@@ -95,13 +70,5 @@ class QdCPT_IntroductionLayout
                 </div>
             </div>
         <?php
-        endif;
-    }
-    public function render()
-    {
-        QdT_Library::loadLayout('root');
-
-        $layout = new QdT_Layout_Root($this);
-        $layout->render();
     }
 }

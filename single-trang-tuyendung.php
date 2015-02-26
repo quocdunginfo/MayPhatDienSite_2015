@@ -7,9 +7,22 @@
  */
 class QdT_TrangTuyenDung
 {
+    private $obj = null;
     function __construct()
     {
-
+        if(have_posts())
+        {
+            the_post();
+            $this->obj = get_post(get_the_ID());
+        }
+    }
+    public function getObj()
+    {
+        return $this->obj;
+    }
+    public function getBreadcrumbs()
+    {
+        return array();
     }
     public function placeHolder1()
     {

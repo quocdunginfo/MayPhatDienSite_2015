@@ -8,11 +8,26 @@
  */
 class QdT_Layout_Root
 {
-    private $view = null;
-
-    function __construct($view)
+    function __construct()
     {
-        $this->view = $view;
+
+    }
+
+    protected function getBreadcrumbs()
+    {
+        $t = array();
+        array_push($t, array('name' => 'Trang chủ', 'url' => get_home_url()));
+        return $t;
+    }
+
+    protected function getContentTitle()
+    {
+        return '[Not set]';
+    }
+
+    protected function getContent()
+    {
+        return '[Not set]';
     }
 
     public function render()
@@ -97,11 +112,11 @@ class QdT_Layout_Root
         <div class="container" id="qd_container_header">
         <style>
             #qd_container_header .row,
-            #qd_container_content .row{
+            #qd_container_content .row {
                 margin: 0 auto;
             }
         </style>
-            <!-- LINE RED -->
+        <!-- LINE RED -->
         <hr class="long-red-line">
         <!-- HEADER -->
         <div class="row clearfix" style="width: 960px; margin: 0 auto">
@@ -300,56 +315,65 @@ class QdT_Layout_Root
         <!-- END BANNER -->
         </div>
         <div class="container" id="qd_container_breadcrums">
-        <style>
-            #qd_container_breadcrums{
-                margin-top: 10px;
-            }
-            #qd_container_breadcrums .row {
-                margin: 0 auto;
-            }
-        </style>
-        <div class="row clearfix" style="width: 960px;">
-        <!-- BreadCrums -->
-        <div class="col-xs-12 column">
             <style>
-                .breadcrumb {
-                    font-size: 12px; /*14px fail!fuck*/
+                #qd_container_breadcrums {
+                    margin-top: 10px;
                 }
 
-                .breadcrumb li a {
-                    color: inherit;
-                    text-decoration: none;
+                #qd_container_breadcrums .row {
+                    margin: 0 auto;
                 }
-
-                .breadcrumb > li.active, li {
-                    color: inherit;
-                }
-
-
             </style>
-            <?php
-            //breadCrums
-            $bc = $this->view->placeHolder2();
-            ?>
-            <ol class="breadcrumb" style="background: none !important; padding: 0px; margin: 0px !important;">
-                <?php
+            <div class="row clearfix" style="width: 960px;">
+                <!-- BreadCrums -->
+                <div class="col-xs-12 column">
+                    <style>
+                        .breadcrumb {
+                            font-size: 12px; /*14px fail!fuck*/
+                        }
 
-                foreach ($bc as $item):
+                        .breadcrumb li a {
+                            color: inherit;
+                            text-decoration: none;
+                        }
+
+                        .breadcrumb > li.active, li {
+                            color: inherit;
+                        }
+
+
+                    </style>
+                    <?php
+                    //breadCrums
+                    $bc = $this->getBreadcrumbs();
                     ?>
-                    <li><a href="<?= $item['url'] ?>"><?= $item['name'] ?></a></li>
-                <?php
-                endforeach;
-                ?>
-            </ol>
-        </div>
-        <!-- end BreadCrums -->
-        </div>
-        </div>
+                    <ol class="breadcrumb" style="background: none !important; padding: 0px; margin: 0px !important;">
+                        <?php
 
+                        foreach ($bc as $item):
+                            ?>
+                            <li><a href="<?= $item['url'] ?>"><?= $item['name'] ?></a></li>
+                        <?php
+                        endforeach;
+                        ?>
+                    </ol>
+                </div>
+                <!-- end BreadCrums -->
+            </div>
+            <!-- Content Title -->
+
+            <div class="row clearfix" style="width: 960px;">
+                <div class="col-xs-12 column">
+                    <h3 style="padding: 30px 0px 40px 0px; margin: 0px; font-weight: bold; font-size: 24px">
+                        <?= $this->getContentTitle() ?>
+                    </h3>
+                </div>
+            </div>
+        </div>
 
         <?php
         //main content
-        $this->view->placeHolder1();
+        $this->getContent();
         ?>
 
         <!-- footer -->

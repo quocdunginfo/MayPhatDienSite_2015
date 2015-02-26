@@ -3,20 +3,18 @@
 /*
 Template Name: TrangChu
 */
-
-class QdT_PageT_TrangChu
+QdT_Library::loadLayout('root');
+class QdT_PageT_TrangChu extends QdT_Layout_Root
 {
     function __construct()
     {
 
     }
-    public function placeHolder2()
+    protected function getContentTitle()
     {
-        $t = array();
-        array_push($t, array('name' => 'Trang chủ', 'url' => get_home_url()));
-        return $t;
+        return '';
     }
-    public function placeHolder1()
+    protected function getContent()
     {
         ?>
         <!-- CONTENT -->
@@ -81,6 +79,4 @@ class QdT_PageT_TrangChu
     <?php
     }
 }
-QdT_Library::loadLayout('root');
-$obj = new QdT_Layout_Root(new QdT_PageT_TrangChu());
-$obj->render();
+(new QdT_PageT_TrangChu())->render();
