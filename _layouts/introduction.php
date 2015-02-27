@@ -12,9 +12,13 @@ class QdCPT_IntroductionLayout extends QdT_Layout_Root
     {
 
     }
-    protected function getBreadcrumbs()
+    protected function getMenu()
     {
-        return $this->page->getBreadcrumbs();
+        return QdT_Library::getNotSetText();
+    }
+    protected function getContentMain()
+    {
+        return QdT_Library::getNotSetText();
     }
     protected function getContent()
     {

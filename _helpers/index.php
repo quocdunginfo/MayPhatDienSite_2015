@@ -30,4 +30,12 @@ class QdT_Library{
     {
         return 'javascript:void(0)';
     }
+    public static function getNotSetText()
+    {
+        return '[Not set]';
+    }
+    public static function getNoneBreadcrumbs()
+    {
+        return array();
+    }
 }

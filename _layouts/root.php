@@ -22,14 +22,21 @@ class QdT_Layout_Root
 
     protected function getContentTitle()
     {
-        return '[Not set]';
+        return QdT_Library::getNotSetText();
     }
 
     protected function getContent()
     {
-        return '[Not set]';
+        return QdT_Library::getNotSetText();
     }
-
+    protected function getPageTitle()
+    {
+        return wp_title('|');
+    }
+    protected function getPageDescription()
+    {
+        return get_bloginfo('description');
+    }
     public function render()
     {
         $temp_p = get_template_directory_uri() . '/';
@@ -45,10 +52,10 @@ class QdT_Layout_Root
         <head>
             <base href="<?= $temp_p ?>">
             <meta charset="<?php bloginfo('charset'); ?>">
-            <title><?php wp_title('|', true, 'right'); ?></title>
+            <title><?=$this->getPageTitle()?></title>
             <meta name="viewport" content="width=960px, initial-scale=1.0">
-            <meta name="description" content="">
-            <meta name="author" content="">
+            <meta name="description" content="<?=$this->getPageDescription()?>">
+            <meta name="author" content="quocdunginfo">
             <?php wp_head(); ?>
 
             <!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
@@ -364,9 +371,13 @@ class QdT_Layout_Root
 
             <div class="row clearfix" style="width: 960px;">
                 <div class="col-xs-12 column">
-                    <h3 style="padding: 30px 0px 40px 0px; margin: 0px; font-weight: bold; font-size: 24px">
+                    <?php
+                    if($this->getContentTitle()!=''):
+                    ?>
+                    <h3 style="padding: 30px 0px 20px 0px; margin: 0px; font-weight: bold; font-size: 24px">
                         <?= $this->getContentTitle() ?>
                     </h3>
+                    <?php endif ?>
                 </div>
             </div>
         </div>

@@ -6,8 +6,8 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  */
-QdT_Library::loadLayout('introduction');
-class QdCPT_TrangLienHe extends QdCPT_IntroductionLayout {
+QdT_Library::loadLayout('root');
+class QdCPT_TrangLienHe extends QdT_Layout_Root {
     private $obj = null;
     function __construct(){
         if(have_posts())
@@ -15,20 +15,24 @@ class QdCPT_TrangLienHe extends QdCPT_IntroductionLayout {
             the_post();
             $this->obj = get_post(get_the_ID());
         }
-        //var_dump($this->obj);
     }
     protected  function getBreadcrumbs()
     {
-        return array(
-            0=>array('url' => get_home_url(), 'name' => 'Trang chủ'),
-            1=>array('url' => get_permalink($this->obj->ID), 'name' => 'Liên hệ')
-        );
+        $t = parent::getBreadcrumbs();
+        array_push($t, array('url' => get_permalink($this->obj->ID), 'name' => 'Liên hệ'));
+        return $t;
     }
+
+    protected function getContentTitle()
+    {
+        return $this->obj->post_title;
+    }
+
     protected function getContent()
     {
         // Start the Loop.
             ?>
-            <div class="container" id="qd_container_content" style="margin-top: 10px;">
+            <div class="container" id="qd_container_content" style="margin-top: 15px;">
                 <!-- WIDGET -->
                 <div class="row clearfix">
                     <div class="col-xs-12 column" id="qd_contact_content">

@@ -85,12 +85,6 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                                 font-size: 16px;
                             }
 
-                            #qd_list_sanpham .qd_jscroll_next {
-                                text-align: center;
-                                padding-top: 15px;
-                                padding-bottom: 20px;
-                            }
-
                             #qd_list_sanpham .qd_jscroll_next a {
 
                             }
@@ -99,7 +93,7 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                         <script>
                             $(document).ready(function () {
                                 $('#qd_list_sanpham').jscroll({
-                                    loadingHtml: '<div style="text-align: center; width: 100%"><img style="width: 25px; height: 25px" src="img/loading.gif" alt="Loading" /> Đang tải...</div>',
+                                    loadingHtml: '<div style="text-align: center; width: 100%; padding-bottom: 17px"><img style="width: 25px; height: 25px" src="img/loading.gif" alt="Loading" /> Đang tải...</div>',
                                     padding: 0,
                                     autoTrigger: false,
                                     nextSelector: '.qd_jscroll_next a:last',
@@ -128,7 +122,16 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                             color: inherit;
                             text-decoration: none;
                         }
-
+                        #qd_nav_danhmuc h1,
+                        #qd_nav_danhmuc h2,
+                        #qd_nav_danhmuc h3,
+                        #qd_nav_danhmuc h4,
+                        #qd_nav_danhmuc h5
+                        {
+                            font-size: inherit;
+                            font-weight: bold;
+                            padding-left: 15px;
+                        }
                         #qd_nav_danhmuc a:hover {
                             text-decoration: underline;
                         }
@@ -138,9 +141,10 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                             line-height: 30px;
                         }
 
-                        #qd_nav_danhmuc ul li.active {
+                        #qd_nav_danhmuc ul li.current-menu-item {
                             font-weight: bold;
                         }
+
                     </style>
                     <div style="border: solid 1px #ffffff; border-left: solid 1px #d8d8d8;"><!-- css of border-top very important -->
                         <ul style="margin-top: -10px">

@@ -1,2 +1,9 @@
 <?php
-echo 'Theme: index.php';
+QdT_Library::loadLayout('root');
+class QdT_TrangIndex extends QdT_Layout_Root {
+    function __construct()
+    {
+
+    }
+}
+(new QdT_TrangIndex())->render();

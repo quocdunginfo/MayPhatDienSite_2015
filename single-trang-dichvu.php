@@ -5,7 +5,8 @@
  * Date: 23/02/2015
  * Time: 10:19 AM
  */
-class QdT_TrangDichVu{
+QdT_Library::loadLayout('introduction');
+class QdT_TrangDichVu extends QdCPT_IntroductionLayout{
     private $obj =null;
     function __construct()
     {
@@ -15,23 +16,26 @@ class QdT_TrangDichVu{
             $this->obj = get_post(get_the_ID());
         }
     }
-    public function getObj()
+    protected function getBreadcrumbs()
     {
-        return $this->obj;
+        $t = parent::getBreadcrumbs();
+        array_push($t, array('url' => QdT_Library::getNoneLink(), 'name' => 'Dịch vụ'));
+        array_push($t, array('url' => get_permalink($this->obj->ID), 'name' => $this->obj->post_title));
+        return $t;
     }
-    public function getBreadcrumbs()
-    {
-        return array(
-            0=>array('url' => get_home_url(), 'name' => 'Trang chủ'),
-            1=>array('url' => QdT_Library::getNoneLink(), 'name' => 'Dịch vụ'),
-            2=>array('url' => get_permalink($this->obj->ID), 'name' => $this->obj->post_title)
-        );
-    }
-    public function placeHolder1()
+    protected function getMenu()
     {
         get_sidebar('right-menu-dichvu');
     }
+
+    protected function getContentMain()
+    {
+        return $this->obj->post_content;
+    }
+
+    protected function getContentTitle()
+    {
+        return $this->obj->post_title;
+    }
 }
-QdT_Library::loadLayout('introduction');
-$QdT_TrangDichVu = new QdCPT_IntroductionLayout(new QdT_TrangDichVu());
-$QdT_TrangDichVu->render();
+(new QdT_TrangDichVu())->render();

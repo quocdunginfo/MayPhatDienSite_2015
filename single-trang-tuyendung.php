@@ -5,7 +5,8 @@
  * Date: 23/02/2015
  * Time: 10:19 AM
  */
-class QdT_TrangTuyenDung
+QdT_Library::loadLayout('introduction');
+class QdT_TrangTuyenDung extends QdCPT_IntroductionLayout
 {
     private $obj = null;
     function __construct()
@@ -16,19 +17,28 @@ class QdT_TrangTuyenDung
             $this->obj = get_post(get_the_ID());
         }
     }
-    public function getObj()
+
+    protected function getContentMain()
     {
-        return $this->obj;
+        return $this->obj->post_content;
     }
-    public function getBreadcrumbs()
+
+    protected function getBreadcrumbs()
     {
-        return array();
+        $t = parent::getBreadcrumbs();
+        array_push($t, array('url' => QdT_Library::getNoneLink(), 'name' => 'Tuyển dụng'));
+        array_push($t, array('url' => get_permalink($this->obj->ID), 'name' => $this->obj->post_title));
+        return $t;
     }
-    public function placeHolder1()
+
+    protected function getContentTitle()
+    {
+        return $this->obj->post_title;
+    }
+
+    protected function getMenu()
     {
         get_sidebar('right-menu-tuyendung');
     }
 }
-QdT_Library::loadLayout('introduction');
-$QdCPT_TrangTuyenDung = new QdCPT_IntroductionLayout(new QdT_TrangTuyenDung());
-$QdCPT_TrangTuyenDung->render();
+(new QdT_TrangTuyenDung())->render();

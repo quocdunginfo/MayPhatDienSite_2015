@@ -30,6 +30,12 @@ endforeach;
 if(count($products_segment)>0):
 ?>
 <div style="clear: both"></div>
+<style>
+    .qd_jscroll_next {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+</style>
 <div class="qd_jscroll_next">
     <?php
     $next_url = $obj->getProductsSegmentURL($_GET['product-offset'] + $item_per_segment);

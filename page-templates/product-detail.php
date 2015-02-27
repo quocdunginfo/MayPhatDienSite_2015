@@ -20,11 +20,11 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
     {
         ?>
         <!-- CONTENT -->
-        <div class="container" id="qd_container_content" style="margin-top: 10px">
+        <div class="container" id="qd_container_content" style="margin-top: 15px">
             <!-- WIDGET -->
             <div class="row clearfix">
                 <!-- PRODUCTS -->
-                <div class="col-xs-8 column" style="">
+                <div class="col-xs-8 column" style="padding: 0">
                     <div class="row clearfix" id="qd_list_sanpham">
                         <style>
                             .qd-image-box {
