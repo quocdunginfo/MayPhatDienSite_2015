@@ -149,41 +149,77 @@ class QdT_Layout_Root
                             color: white;
                         }
                     </style>
-                    <form action="#" method="get" style="position: relative">
-                        <img src="img/search-icon-hi.png"
+                    <script>
+                        search_array = ["img/search-icon-hi.png", "img/loading.gif"];
+                    </script>
+                    <form style="position: relative" onsubmit="return false;">
+                        <img id="qd-search-icon" src="img/search-icon-hi.png"
                              style="height: 20px; width: 20px; position: absolute; top: 7px; right: 10px; opacity: 0.6">
                         <input id="qd-search-box" class="form-control" type="text"
                                style="width: 200px; padding-right: 40px"
                                placeholder="search...">
+                        <script>
+                            (function($) {
+                                $(document).ready(function(){
+                                    $('#qd-search-box').change(function() {
+                                        $("#qd-search-icon").attr("src", search_array[1]);
+                                        $.get("http://localhost/mpd_2015/?qd-api=search/search_port&limit=7", {key_word: $("#qd-search-box").val()})
+                                            .done(function (data) {
 
+                                                //data JSON
+                                                var obj = data;//"ok";//jQuery.parseJSON( data );//may throw error if data aldreay JSON format
+                                                //clear previous result
+                                                $("#qd-result-wrapper").html("");
+                                                //set new result
+                                                for (i = 0; i < data.length; i++) {
+                                                    console.log(data[i]);
+                                                    $("#qd-result-wrapper" ).append(
+                                                    "<div class=\"qd-result-item\"><a target=\"_blank\" href=\""+data[i].url+"\">"+data[i].name+"</a></div>"
+                                                    );
+
+                                                }
+                                                $("#qd-search-icon").attr("src", search_array[0]);
+                                            })
+                                            .fail(function (data) {
+                                                console.log("FAIL:" + data);
+                                            })
+                                            .always(function () {
+                                                //release lock
+                                                $('#delete').removeAttr('disabled');
+                                            });
+                                    });
+                                });
+                            })(jQuery);
+                        </script>
+                        <style>
+                            #qd-result-wrapper {
+                                z-index: 1000;
+                                right: 0px;
+                                position: absolute;
+                                width: 300px;
+                                height: auto;
+                                background-color: #000000;
+                                opacity: 0.8;
+                                color: white;
+                                border-radius: 20px;
+                            }
+
+                            #qd_search > form > #qd-result-wrapper {
+                                display: none;
+                            }
+
+                            #qd_search > form:hover > #qd-result-wrapper {
+                                display: block;
+                            }
+                        </style>
                         <div id="qd-result-wrapper">
-                            <style>
-                                #qd-result-wrapper {
-                                    z-index: 1000;
-                                    right: 0px;
-                                    position: absolute;
-                                    width: 300px;
-                                    height: auto;
-                                    background-color: #000000;
-                                    opacity: 0.8;
-                                    color: white;
-                                    border-radius: 20px;
-                                }
-
-                                #qd_search > form > #qd-result-wrapper {
-                                    display: none;
-                                }
-
-                                #qd_search > form:hover > #qd-result-wrapper {
-                                    display: block;
-                                }
-                            </style>
+                            <!--
                             <div class="qd-result-item">
                                 <a href="">Match 1 không</a>
                             </div>
                             <div class="qd-result-item">Result 1</div>
                             <div class="qd-result-item">Result 1</div>
-                            <div class="qd-result-item">Result 1</div>
+                            <div class="qd-result-item">Result 1</div> -->
                         </div>
                         <input type="submit" value="submit" style="display: none">
                     </form>
