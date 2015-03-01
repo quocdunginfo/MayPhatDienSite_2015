@@ -11,7 +11,7 @@
  * Class QdT_Library
  * Included in functions.php
  */
-class QdT_Library{
+class QdT_Library extends Qdmvc_Helper {
     function __construct()
     {
 
@@ -25,10 +25,6 @@ class QdT_Library{
     public static function loadPageT($name)
     {
         require_once(__DIR__.'/'.self::$pageT_loc.$name.'.php');
-    }
-    public static function  getNoneLink()
-    {
-        return 'javascript:void(0)';
     }
     public static function getNotSetText()
     {

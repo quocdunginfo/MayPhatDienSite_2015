@@ -16,7 +16,7 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
     }
     protected function getBreadcrumbs()
     {
-        return $this->obj->getBreadcrumbs();
+        return array_merge(parent::getBreadcrumbs(), $this->obj->getBreadcrumbs());
     }
     protected function getContentTitle()
     {

@@ -161,6 +161,9 @@ class QdT_Layout_Root
                         <script>
                             (function($) {
                                 $(document).ready(function(){
+                                    $("#qd-search-icon").click(function(){
+                                        $('#qd-search-box').change();
+                                    });
                                     $('#qd-search-box').change(function() {
                                         $("#qd-search-icon").attr("src", search_array[1]);
                                         $.get("http://localhost/mpd_2015/?qd-api=search/search_port&limit=7", {key_word: $("#qd-search-box").val()})
