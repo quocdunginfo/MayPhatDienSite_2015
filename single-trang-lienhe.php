@@ -57,7 +57,7 @@ class QdCPT_TrangLienHe extends QdT_Layout_Root {
                             <tbody>
                             <tr>
                                 <td class="qd_contact_left">
-                                    <?=rwmb_meta( QdP_TrangLienHe::email(), null, get_the_ID() )?>
+                                    <?=rwmb_meta( Qdmvc_Metabox_TrangLienHe::getFieldName('email'), null, get_the_ID() )?>
                                 </td>
                                 <td class="qd_contact_right">
                                     <?=$this->obj->post_content?>
