@@ -122,7 +122,7 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                             <li>Động cơ: <?= $this->obj->dongco ?></li>
                             <li>Trọng lượng: <?= $this->obj->trongluong ?></li>
                             <li>Bảo hành: <?= $this->obj->baohanh ?></li>
-                            <li>Nhóm SP: <?= $this->obj->getProductCatObj()->name ?></li>
+                            <li>Nhóm SP: <?=$this->obj->_product_cat_name?></li>
                         </ul>
                     </div>
                     <a class="btn btn-primary">ĐẶT HÀNG</a>
