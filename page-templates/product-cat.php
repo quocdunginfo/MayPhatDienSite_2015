@@ -84,6 +84,10 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                                 color: white;
                                 font-size: 16px;
                             }
+                            .qd-image-box-caption a {
+                                color: inherit;
+                                text-decoration: none;
+                            }
 
                             #qd_list_sanpham .qd_jscroll_next a {
 

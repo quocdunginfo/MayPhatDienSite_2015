@@ -15,7 +15,7 @@ foreach($products_segment as $item):
         background-size: contain;
         background-position: center;">
         <div class="qd-image-box-caption">
-            <?=$item->name?>
+            <a href="<?=$item->getPermalink()?>"><?=$item->name?></a>
         </div>
         <div class="qd_xemchitiet">
             <a href="<?=$item->getPermalink()?>" target="_blank" type="button" class="btn btn-default">XEM CHI TIẾT</a>

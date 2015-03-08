@@ -7,6 +7,7 @@
  * @since Twenty Fifteen 1.0
  */
 QdT_Library::loadLayout('root');
+Qdmvc::loadNative('page-meta-box');
 class QdCPT_TrangLienHe extends QdT_Layout_Root {
     private $obj = null;
     function __construct(){

@@ -10,6 +10,12 @@ class QdT_PageT_TrangChu extends QdT_Layout_Root
     {
 
     }
+
+    protected function getBreadcrumbs()
+    {
+        return array();
+    }
+
     protected function getContentTitle()
     {
         return '';
