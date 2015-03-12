@@ -104,7 +104,7 @@ class QdT_Layout_Root
 
         </head>
 
-        <body <?php body_class(); ?>>
+        <body <?php body_class(); ?> style="background: rgba(0,0,0,0.1);">
         <style>
             .container {
                 width: 100%;
@@ -188,7 +188,7 @@ class QdT_Layout_Root
                                             })
                                             .always(function () {
                                                 //release lock
-                                                $('#delete').removeAttr('disabled');
+                                                $('#qddelete').removeAttr('disabled');
                                             });
                                     });
                                 });

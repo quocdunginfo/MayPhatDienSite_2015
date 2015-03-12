@@ -150,7 +150,7 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                         }
 
                     </style>
-                    <div style="border: solid 1px #ffffff; border-left: solid 1px #d8d8d8;"><!-- css of border-top very important -->
+                    <div style="/*border: solid 1px #ffffff;*/ border-left: solid 1px #d8d8d8;"><!-- css of border-top very important -->
                         <ul style="margin-top: -10px">
                             <!-- Alway active for 1st element -->
                             <?=get_sidebar('right-menu-productcat')?>
