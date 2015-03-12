@@ -18,6 +18,7 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
     protected function loadScript()
     {
         QdJqwidgets::loadJS("form2js.js");
+        QdJqwidgets::loadJS("ajax-loader.js");
     }
 
     protected function getBreadcrumbs()
@@ -37,7 +38,7 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content" id="qd-modal-content">
                     <div style="background-color: #4d4d4d; color: white" class="modal-header">
                         <button style="font-size: 32px; margin-top: -5px !important; color: inherit; opacity: 0.5"
                                 type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -65,8 +66,8 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                                         <td style="align-content: center">
                                             <label class="control-label pull-left">Số lượng đặt:</label>
 
-                                            <select name="count" class="pull-left form-control" style="width: 60px; height: 30px; margin-left: 10px">
-                                                <?php for ($i = 1; $i <= 10; $i++): ?>
+                                            <select name="count" class="pull-left form-control" style="width: 70px; height: 30px; margin-left: 10px">
+                                                <?php for ($i = 1; $i <= 20; $i++): ?>
                                                     <option value="<?= $i ?>"><?= $i ?></option>
                                                 <?php endfor; ?>
                                             </select>
@@ -106,11 +107,18 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                             </div>
                             <div style="display: none" class="alert alert-success" id="qdmsgbox">
                                     <a href="#" class="close" data-dismiss="alert">&times;</a>
-                                    Đặt hàng thành công
+                                    Đặt hàng thành công (tự đóng sau 3 giây)
                             </div>
 
                         </form>
                     </div>
+                    <style>
+                        .ajax_loader {
+                            background: url(<?=Qdmvc_Helper::getImgURL("ajax-loader_blue.gif")?>) no-repeat center center transparent;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    </style>
                     <script>
                         (function ($) {
                             $(document).ready(function () {
@@ -133,20 +141,26 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                                      customer_address: $('#customer_address').val()
                                      };*/
                                     console.log(json);
-
+                                    var ajax_loader = new ajaxLoader("#qd-modal-content");;
+                                    //show progress bar
+                                    //...
                                     $.post(data_port, {submit: "submit", action: "insert", data: json})
                                         .done(function (data) {
                                             //data JSON
                                             console.log(data);
                                             //var obj = data;//"ok";//jQuery.parseJSON( data );//may throw error if data aldreay JSON format
                                             $('#qdmsgbox').css("display", "block");
+                                            //auto close after 2 second
+                                            setTimeout(function(){
+                                                $('#myModal').modal('hide');
+                                            }, 3000);
                                         })
                                         .fail(function (data) {
                                             console.log(data);
                                         })
                                         .always(function () {
                                             //release lock
-
+                                            ajax_loader.remove();
                                         });
                                 });
                             });
