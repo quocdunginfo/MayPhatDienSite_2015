@@ -33,7 +33,7 @@ if(count($products_segment)>0):
 <style>
     .qd_jscroll_next {
         text-align: center;
-        padding-bottom: 20px;
+        padding-bottom: 25px;
     }
 </style>
 <div class="qd_jscroll_next">

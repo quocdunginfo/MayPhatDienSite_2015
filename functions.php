@@ -115,3 +115,12 @@ add_action( 'widgets_init', 'mpd2015_widgets_init' );
 ) );*/
 
 require_once('_helpers/index.php');
+
+//SET COOKIE
+function set_newuser_cookie() {
+    if ( !is_admin() && !isset($_COOKIE['customer_json'])) {
+
+        setcookie('customer_json', 1, time()+3600*24*100, COOKIEPATH, COOKIE_DOMAIN, false);
+    }
+}
+add_action( 'init', 'set_newuser_cookie');

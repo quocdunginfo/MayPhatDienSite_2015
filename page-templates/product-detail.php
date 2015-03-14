@@ -8,11 +8,16 @@ QdT_Library::loadLayout('root');
 class QdT_PageT_ProductDetail extends QdT_Layout_Root
 {
     private $obj = null;
+    private $cached_customer = '{}';
 
     function __construct()
     {
         $this->obj = QdProduct::first($_GET['id']);
         $this->loadScript();
+
+        if (isset($_COOKIE['customer_json'])) {
+            $this->cached_customer = $_COOKIE['customer_json'];
+        }
     }
 
     protected function loadScript()
@@ -43,7 +48,8 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                         <button style="font-size: 32px; margin-top: -5px !important; color: inherit; opacity: 0.5"
                                 type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                        <h4 style="display: inline-block; opacity: 0.5" class="modal-title" id="myModalLabel">THÔNG TIN ĐẶT HÀNG</h4>
+                        <h4 style="display: inline-block; opacity: 0.5" class="modal-title" id="myModalLabel">THÔNG TIN
+                            ĐẶT HÀNG</h4>
                     </div>
                     <div class="modal-body" onsubmit="return false;">
                         <form id="orderForm">
@@ -55,6 +61,7 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                                         #qd-1st-form-row td {
                                             padding: 0px;
                                         }
+
                                         #qd-1st-form-row label {
                                             margin-top: 5px;
                                         }
@@ -66,7 +73,8 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                                         <td style="align-content: center">
                                             <label class="control-label pull-left">Số lượng đặt:</label>
 
-                                            <select name="count" class="pull-left form-control" style="width: 70px; height: 30px; margin-left: 10px">
+                                            <select name="count" class="pull-left form-control"
+                                                    style="width: 70px; height: 30px; margin-left: 10px">
                                                 <?php for ($i = 1; $i <= 20; $i++): ?>
                                                     <option value="<?= $i ?>"><?= $i ?></option>
                                                 <?php endfor; ?>
@@ -106,8 +114,8 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                                 <input type="text" class="form-control" name="mota" id="mota">
                             </div>
                             <div style="display: none" class="alert alert-success" id="qdmsgbox">
-                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
-                                    Đặt hàng thành công (tự đóng sau 3 giây)
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                Đặt hàng thành công (tự đóng sau 3 giây)
                             </div>
 
                         </form>
@@ -122,7 +130,7 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                     <script>
                         (function ($) {
                             $(document).ready(function () {
-                                var data_port = 'http://localhost/mpd_2015/?qd-api=front/product_order_port';
+                                var data_port = '<?=Qdmvc_Helper::getDataPortPath('front/product_order_port')?>'; //'http://localhost/mpd_2015/?qd-api=front/product_order_port';
 
                                 $('#myModal').on('shown.bs.modal', function () {
                                     $('#qdmsgbox').css("display", "none");
@@ -131,17 +139,10 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
 
                                 $('#qdsend').click(function () {
                                     var json = form2js("orderForm", ".", false, null, true);
-                                    /*{
-                                     product_id: $('#product_id').val(),
-                                     customer_name: $('#customer_name').val(),
-                                     customer_phone: $('#customer_phone').val(),
-                                     customer_email: $('#customer_email').val(),
-                                     mota: $('#mota').val(),
-                                     count: $('#count').val(),
-                                     customer_address: $('#customer_address').val()
-                                     };*/
+
                                     console.log(json);
-                                    var ajax_loader = new ajaxLoader("#qd-modal-content");;
+                                    var ajax_loader = new ajaxLoader("#qd-modal-content");
+                                    ;
                                     //show progress bar
                                     //...
                                     $.post(data_port, {submit: "submit", action: "insert", data: json})
@@ -151,7 +152,7 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                                             //var obj = data;//"ok";//jQuery.parseJSON( data );//may throw error if data aldreay JSON format
                                             $('#qdmsgbox').css("display", "block");
                                             //auto close after 2 second
-                                            setTimeout(function(){
+                                            setTimeout(function () {
                                                 $('#myModal').modal('hide');
                                             }, 3000);
                                         })
@@ -187,11 +188,11 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
             <div class="row clearfix">
                 <!-- PRODUCTS -->
                 <div class="col-xs-8 column" style="padding: 0">
-                    <div class="row clearfix" id="qd_list_sanpham">
+                    <div class="row clearfix" id="qd_list_sanpham" style="margin-right: 5px">
                         <style>
                             .qd-image-box {
                                 width: 100%;
-                                height: 300px;
+                                height: 384px;
                                 position: relative;
                                 border: solid 1px #CACACA;
                                 margin-bottom: 25px;
@@ -243,7 +244,8 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
 
                         #qd_nav_danhmuc ul li {
                             list-style: none;
-                            line-height: 30px;
+                            line-height: 16px;
+                            margin-top: 12px;
                         }
 
                         #qd_nav_danhmuc ul li.active {
@@ -264,13 +266,17 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                         }
                     </style>
                     <!-- css of border-top very important -->
-                    <div style="border: solid 1px #ffffff; border-left: solid 1px #d8d8d8;" id="qd_product_properties">
+                    <div style="/*border: solid 1px #ffffff;*/ border-left: solid 1px #d8d8d8;" id="qd_product_properties">
                         <style>
-                            #qd_product_properties li {
-
+                            #qd_product_properties {
+                                margin-top: -12px;
+                            }
+                            #qd_product_properties ul li {
+                                position: relative;
+                                top: -2px;
                             }
                         </style>
-                        <ul style="padding-left: 15px; margin-top: -10px">
+                        <ul style="padding-left: 20px; margin-bottom: 0px /*margin-top: -10px*/">
                             <!-- Alway active for 1st element -->
                             <li>Model: <?= $this->obj->model ?></li>
                             <li>Xuất xứ: <?= $this->obj->xuatxu ?></li>
@@ -281,9 +287,9 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                             <li>Nhóm SP: <?= $this->obj->_product_cat_name ?></li>
                         </ul>
                     </div>
-                    <a class="btn btn-primary" data-toggle="modal" data-target="#myModal">ĐẶT HÀNG</a>
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-top: 23px">ĐẶT HÀNG</a>
                     <button class="btn btn-primary"
-                            style="margin-top: 10px; color: #000000; border: solid 1px #000000; background-color: white; font-weight: normal">
+                            style="margin-top: 23px; color: #000000; border: solid 1px #000000; background-color: white; font-weight: normal">
                         TƯ VẤN 097 999 6 234
                     </button>
                 </div>

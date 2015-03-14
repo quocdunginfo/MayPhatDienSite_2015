@@ -34,11 +34,11 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                     <div class="row clearfix" id="qd_list_sanpham">
                         <style>
                             .qd-image-box {
-                                width: 330px;
+                                width: 315px;
                                 height: 200px;
                                 position: relative;
                                 border: solid 1px #CACACA;
-                                margin-bottom: 25px;
+                                margin-bottom: 30px;
                                 float: right;
                             }
 
@@ -116,7 +116,7 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                 </div>
                 <!-- END PRODUCTS -->
                 <!-- PRODUCT CATEGORIES -->
-                <div id="qd_nav_danhmuc" class="col-xs-3 column" style="padding-left: 0px">
+                <div id="qd_nav_danhmuc" class="col-xs-3 column" style="padding-left: 0px; margin-top: -11px">
                     <style>
                         #qd_nav_danhmuc ul {
                             padding-left: 15px;

@@ -40,12 +40,10 @@ class QdT_Layout_Root
     public function render()
     {
         $temp_p = get_template_directory_uri() . '/';
-        $slider = Qdmvc_Helper::getSlider(71);
+        $slider = Qdmvc_Helper::getSlider(71);//quocdunginfo
         $logo_url = ot_get_option('header_logo', 'img/logo.jpg');
 
-
-
-
+        
         ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -137,7 +135,8 @@ class QdT_Layout_Root
                 <div id="qd_search" class="pull-right">
                     <style>
                         #qd_search {
-                            margin-top: 10px;
+                            margin-top: 15px;
+                            margin-bottom: 5px;
                         }
 
                         .qd-result-item {
@@ -154,9 +153,9 @@ class QdT_Layout_Root
                     </script>
                     <form style="position: relative" onsubmit="return false;">
                         <img id="qd-search-icon" src="img/search-icon-hi.png"
-                             style="height: 20px; width: 20px; position: absolute; top: 7px; right: 10px; opacity: 0.6">
+                             style="height: 15px; width: 15px; position: absolute; top: 7px; right: 10px; opacity: 0.4">
                         <input id="qd-search-box" class="form-control" type="text"
-                               style="width: 200px; padding-right: 40px"
+                               style="width: 200px; padding-right: 40px; height: 27px;"
                                placeholder="search...">
                         <script>
                             (function($) {
@@ -245,6 +244,12 @@ class QdT_Layout_Root
                             </style>
                             <!-- end CSS memu : FIX layout conflict with bootstrap -->
                             <style>
+                                #cssmenu {
+                                    background: none;
+                                }
+                                #cssmenu ul {
+                                    background: none !important;
+                                }
                                 #cssmenu {
                                     height: 30px;
                                     right: -35px;
@@ -363,7 +368,7 @@ class QdT_Layout_Root
         <div class="container" id="qd_container_breadcrums">
             <style>
                 #qd_container_breadcrums {
-                    margin-top: 10px;
+                    margin-top: 25px;
                 }
 
                 #qd_container_breadcrums .row {
