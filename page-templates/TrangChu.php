@@ -53,7 +53,7 @@ class QdT_PageT_TrangChu extends QdT_Layout_Root
                         position: absolute;
                         bottom: 0px;
                         left: 0px;
-                        background: rgba(0, 0, 0, 0.7);
+                        background: rgba(0, 0, 0, 0.4);
                         color: white;
                         font-size: 18px;
                     }

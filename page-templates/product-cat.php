@@ -80,7 +80,7 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                                 position: absolute;
                                 bottom: 0px;
                                 left: 0px;
-                                background: rgba(0, 0, 0, 0.6);
+                                background: rgba(0, 0, 0, 0.4);
                                 color: white;
                                 font-size: 16px;
                             }
