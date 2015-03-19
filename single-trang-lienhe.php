@@ -8,22 +8,31 @@
  */
 QdT_Library::loadLayout('root');
 Qdmvc::loadNative('page-meta-box');
-class QdCPT_TrangLienHe extends QdT_Layout_Root {
+
+class QdCPT_TrangLienHe extends QdT_Layout_Root
+{
     private $obj = null;
-    function __construct(){
-        if(have_posts())
-        {
+
+    function __construct()
+    {
+        $this->loadScript();
+        if (have_posts()) {
             the_post();
             $this->obj = get_post(get_the_ID());
         }
     }
-    protected  function getBreadcrumbs()
+
+    protected function getBreadcrumbs()
     {
         $t = parent::getBreadcrumbs();
         array_push($t, array('url' => get_permalink($this->obj->ID), 'name' => 'Liên hệ'));
         return $t;
     }
-
+    protected function loadScript()
+    {
+        QdJqwidgets::loadJS("form2js.js");
+        QdJqwidgets::loadJS("ajax-loader.js");
+    }
     protected function getContentTitle()
     {
         return $this->obj->post_title;
@@ -32,44 +41,119 @@ class QdCPT_TrangLienHe extends QdT_Layout_Root {
     protected function getContent()
     {
         // Start the Loop.
-            ?>
-            <div class="container" id="qd_container_content" style="margin-top: 15px;">
-                <!-- WIDGET -->
-                <div class="row clearfix">
-                    <div class="col-xs-12 column" id="qd_contact_content">
-                        <style>
-                            #qd_contact_content table td {
-                                border: solid 1px #d8d8d8;
-                                width: 50%;
-                                padding: 25px;
-                            }
+        ?>
+        <div class="container" id="qd_container_content" style="margin-top: 15px;">
+            <!-- WIDGET -->
+            <div class="row clearfix">
+                <div class="col-xs-12 column" id="qd_contact_content">
+                    <style>
+                        #qd_contact_content table td {
+                            border: solid 1px #d8d8d8;
+                            width: 50%;
+                            padding: 25px;
+                        }
 
-                            #qd_contact_content table td.qd_contact_left {
-                                vertical-align: middle;
-                                text-align: center;
-                                font-size: 30px;
-                            }
+                        /*
+                        #qd_contact_content table td.qd_contact_left {
+                            vertical-align: middle;
+                            text-align: center;
+                            font-size: 30px;
+                        }*/
 
-                            #qd_contact_content table td.qd_contact_right {
-                                padding: 25px;
-                            }
-                        </style>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <td class="qd_contact_left">
-                                    <?=rwmb_meta( Qdmvc_Metabox_TrangLienHe::getFieldName('email'), null, get_the_ID() )?>
-                                </td>
-                                <td class="qd_contact_right">
-                                    <?=$this->obj->post_content?>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        #qd_contact_content table td.qd_contact_right {
+                            padding: 25px;
+                        }
+                    </style>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td class="qd_contact_left" id="qd_contact_left">
+                                <?php
+                                //rwmb_meta( Qdmvc_Metabox_TrangLienHe::getFieldName('email'), null, get_the_ID() );
+                                ?>
+                                <form id="contactForm">
+
+                                    <div class="form-group">
+
+                                        <label class="control-label">Họ tên:</label>
+                                        <input type="text" class="form-control" name="customer_name"
+                                               id="customer_name">
+
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Email:</label>
+                                        <input type="text" class="form-control" name="customer_email"
+                                               id="customer_email">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">Nội dung:</label>
+                                        <textarea style="height: 100px" type="text" class="form-control" name="content"
+                                                  id="content"></textarea>
+                                    </div>
+                                    <div style="display: none" class="alert alert-success" id="qdmsgbox">
+                                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                        Gửi liên hệ thành công
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="qdsend" type="button" class="btn btn-primary">Gửi</button>
+                                    </div>
+                                </form>
+                                <style>
+                                    .ajax_loader {
+                                        background: url(<?=Qdmvc_Helper::getImgURL("ajax-loader_blue.gif")?>) no-repeat center center transparent;
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                </style>
+                            </td>
+                            <td class="qd_contact_right">
+                                <?= $this->obj->post_content ?>
+                            </td>
+                            <script>
+                                (function ($) {
+                                    $(document).ready(function () {
+                                        var data_port = '<?=Qdmvc_Helper::getDataPortPath('front/feedback_port')?>';
+
+                                        $('#qdsend').click(function () {
+                                            var json = form2js("contactForm", ".", false, null, true);
+
+                                            console.log(json);
+                                            var ajax_loader = new ajaxLoader("#qd_contact_left");
+
+                                            //show progress bar
+                                            //...
+                                            $.post(data_port, {submit: "submit", action: "insert", data: json})
+                                                .done(function (data) {
+                                                    //data JSON
+                                                    console.log(data);
+                                                    //var obj = data;//"ok";//jQuery.parseJSON( data );//may throw error if data aldreay JSON format
+                                                    $('#qdmsgbox').css("display", "block");
+                                                    //auto close after 3 second
+                                                    setTimeout(function () {
+                                                        //...
+                                                    }, 3000);
+                                                })
+                                                .fail(function (data) {
+                                                    console.log(data);
+                                                })
+                                                .always(function () {
+                                                    //release lock
+                                                    ajax_loader.remove();
+                                                });
+                                        });
+                                    });
+                                })(jQuery);
+                            </script>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        <?php
+        </div>
+    <?php
     }
 }
+
 (new QdCPT_TrangLienHe())->render();

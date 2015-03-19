@@ -142,7 +142,7 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
 
                                     console.log(json);
                                     var ajax_loader = new ajaxLoader("#qd-modal-content");
-                                    ;
+
                                     //show progress bar
                                     //...
                                     $.post(data_port, {submit: "submit", action: "insert", data: json})
