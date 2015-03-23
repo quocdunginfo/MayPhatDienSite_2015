@@ -25,13 +25,13 @@ class QdT_Layout_Root
         return QdT_Library::getNotSetText();
     }
 
-    protected function getContent()
+    protected function getContentPart()
     {
         return QdT_Library::getNotSetText();
     }
     protected function getPageTitle()
     {
-        return wp_title('|');
+        return get_bloginfo('name');
     }
     protected function getPageDescription()
     {
@@ -40,10 +40,6 @@ class QdT_Layout_Root
     public function render()
     {
         $temp_p = get_template_directory_uri() . '/';
-        $slider = Qdmvc_Helper::getSlider(71);//quocdunginfo
-        $logo_url = ot_get_option('header_logo', 'img/logo.jpg');
-
-        
         ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -55,11 +51,6 @@ class QdT_Layout_Root
             <meta name="description" content="<?=$this->getPageDescription()?>">
             <meta name="author" content="quocdunginfo">
             <?php wp_head(); ?>
-
-            <!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
-            <!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
-            <!--script src="js/less-1.3.3.min.js"></script-->
-            <!--append ‘#!watch’ to the browser URL, then refresh the page. -->
 
             <link href="css/bootstrap.min.css" rel="stylesheet">
             <link href="css/style.css" rel="stylesheet">
@@ -115,12 +106,33 @@ class QdT_Layout_Root
             }
         </style>
         <div class="container" id="qd_container_header">
-        <style>
-            #qd_container_header .row,
-            #qd_container_content .row {
-                margin: 0 auto;
-            }
-        </style>
+            <style>
+                #qd_container_header .row,
+                #qd_container_content .row {
+                    margin: 0 auto;
+                }
+            </style>
+            <?=$this->getHeaderPart()?>
+            <?=$this->getBannerPart()?>
+        </div>
+        <?=$this->getBreadcrumbsPart()?>
+
+        <?php
+        //main content
+        $this->getContentPart();
+        ?>
+
+        <?=$this->getFooterPart()?>
+        <?php wp_footer(); ?>
+        </body>
+        </html>
+
+    <?php
+    }
+    protected function getHeaderPart()
+    {
+        $logo_url = ot_get_option('header_logo', 'img/logo.jpg');
+        ?>
         <!-- LINE RED -->
         <hr class="long-red-line">
         <!-- HEADER -->
@@ -176,7 +188,7 @@ class QdT_Layout_Root
                                                 for (i = 0; i < data.length; i++) {
                                                     console.log(data[i]);
                                                     $("#qd-result-wrapper" ).append(
-                                                    "<div class=\"qd-result-item\"><a target=\"_blank\" href=\""+data[i].url+"\">"+data[i].name+"</a></div>"
+                                                        "<div class=\"qd-result-item\"><a target=\"_blank\" href=\""+data[i].url+"\">"+data[i].name+"</a></div>"
                                                     );
 
                                                 }
@@ -215,13 +227,7 @@ class QdT_Layout_Root
                             }
                         </style>
                         <div id="qd-result-wrapper">
-                            <!--
-                            <div class="qd-result-item">
-                                <a href="">Match 1 không</a>
-                            </div>
-                            <div class="qd-result-item">Result 1</div>
-                            <div class="qd-result-item">Result 1</div>
-                            <div class="qd-result-item">Result 1</div> -->
+
                         </div>
                         <input type="submit" value="submit" style="display: none">
                     </form>
@@ -270,21 +276,6 @@ class QdT_Layout_Root
                                 /*To prevent black dot under menu*/
                             </style>
                             <?php get_sidebar('main-menu'); ?>
-                            <!--
-                            <ul>
-                                <li><a href='index.html'><span>TRANG CHỦ</span></a></li>
-                                <li class='active'><a href='products2.html'><span>DANH MỤC SẢN PHẨM</span></a>
-                                    <ul>
-                                        <li><a href='#'><span>Sản phẩm số 1 - độ dài quá chừng</span></a></li>
-                                        <li><a href='#'><span>SP2</span></a></li>
-                                    </ul>
-                                </li>
-                                <li><a href='introduction_layout.html'><span>DỊCH VỤ</span></a></li>
-                                <li><a href='introduction_layout.html'><span>TUYỂN DỤNG</span></a></li>
-                                <li><a href='introduction_layout.html'><span>GIỚI THIỆu</span></a></li>
-                                <li><a href='contact.html'><span>LIÊN HỆ</span></a></li>
-                            </ul>
-                            -->
                         </div>
 
                         <div style="clear: both;"></div>
@@ -295,6 +286,12 @@ class QdT_Layout_Root
             </div>
         </div>
         <!-- end header -->
+        <?php
+    }
+    protected function getBannerPart()
+    {
+        $slider = Qdmvc_Helper::getSlider(ot_get_option('banner_meta_slider_shortcode', ''));
+        ?>
         <!-- BANNER -->
         <div class="row clearfix">
             <div class="col-xs-12 column" style="padding: 0">
@@ -364,7 +361,11 @@ class QdT_Layout_Root
             </div>
         </div>
         <!-- END BANNER -->
-        </div>
+        <?php
+    }
+    protected function getBreadcrumbsPart()
+    {
+        ?>
         <div class="container" id="qd_container_breadcrums">
             <style>
                 #qd_container_breadcrums {
@@ -417,20 +418,19 @@ class QdT_Layout_Root
                 <div class="col-xs-12 column">
                     <?php
                     if($this->getContentTitle()!=''):
-                    ?>
-                    <h3 style="padding: 30px 0px 20px 0px; margin: 0px; font-weight: bold; font-size: 24px">
-                        <?= $this->getContentTitle() ?>
-                    </h3>
+                        ?>
+                        <h3 style="padding: 30px 0px 20px 0px; margin: 0px; font-weight: bold; font-size: 24px">
+                            <?= $this->getContentTitle() ?>
+                        </h3>
                     <?php endif ?>
                 </div>
             </div>
         </div>
-
         <?php
-        //main content
-        $this->getContent();
+    }
+    protected function getFooterPart()
+    {
         ?>
-
         <!-- footer -->
         <div class="container" id="qd_container_footer" style="background-color: #4d4d4d; color: white;">
             <!-- LINE RED -->
@@ -439,7 +439,52 @@ class QdT_Layout_Root
             <div class="row clearfix"
                  style="color: white; width: 960px; margin: auto;">
                 <div class="col-xs-12 column">
-                    <!-- NAVIGATION -->
+                    <!-- Footer Nav -->
+                    <div class="row clearfix qd-footer-nav"
+                         style="width: auto; position: relative; ">
+                        <div class="col-xs-3 column">
+                            <?php get_sidebar('footer-menu-1'); ?>
+                        </div>
+                        <div class="col-xs-3 column">
+                            <?php get_sidebar('footer-menu-2'); ?>
+                        </div>
+                        <div class="col-xs-3 column">
+                            <?php get_sidebar('footer-menu-3'); ?>
+                        </div>
+                        <div class="col-xs-3 column">
+                            <?php get_sidebar('footer-menu-4'); ?>
+                        </div>
+                    </div>
+                    <!-- For social items from plugin -->
+                    <style>
+                        .social-icons-list {
+                            margin-top: 10px !important;
+                        }
+
+                        .social-icons-list img {
+                            border-radius: 50% 50% 50% 50%;
+                            width: 32px;
+                            height: 32px;
+                            float: left;
+                        }
+
+
+                        .social-icons-list a {
+                            display: inline-block;
+                            margin-left: 20px;
+                            width: 32px;
+                            height: 32px;
+                        }
+
+                        .social-icons-list a:first-of-type {
+                            margin-left: 0px;
+                        }
+
+                        .social-icons-list .social:hover {
+                            opacity: 0.4;
+                        }
+                    </style>
+                    <!-- For common ul li items -->
                     <style>
                         .qd-footer-nav {
                             padding-top: 100px;
@@ -479,102 +524,27 @@ class QdT_Layout_Root
                             line-height: 2;
                         }
                     </style>
-                    <div class="row clearfix qd-footer-nav"
-                         style="width: auto; position: relative; ">
-                        <div class="col-xs-3 column">
-                            <?php get_sidebar('footer-menu-1'); ?>
-                            <!--
-                            <ul style="list-style: none">
-                                <li><b>DANH MỤC SẢN PHẨM</b></li>
-                                <li>Máy phát điện</li>
-                                <li>Máy hàn</li>
-                                <li>Máy cắt cỏ</li>
-                                <li>Sản phẩm khác</li>
-                            </ul>
-                            -->
-
-                        </div>
-                        <div class="col-xs-3 column">
-                            <?php get_sidebar('footer-menu-2'); ?>
-                            <!--
-                            <ul style="list-style: none">
-                                <li>DANH MỤC SẢN PHẨM</li>
-                                <li>Máy phát điện</li>
-                                <li>Máy hàn</li>
-                                <li>Máy cắt cỏ</li>
-                                <li>Sản phẩm khác</li>
-                            </ul>
-                            -->
-
-                        </div>
-                        <div class="col-xs-3 column">
-                            <?php get_sidebar('footer-menu-3'); ?>
-                            <!--
-                            <div>TƯ VẤN - HỖ TRỢ</div>
-                            <div style="font-size: 20px">097 999 6 234</div>
-                            <div>(Từ 7:00 - 20:00 mỗi ngày)</div> -->
-
-                        </div>
-                        <div class="col-xs-3 column" style="position: relative">
-                            <div class="qd-social-icon" style="position: absolute">
-                                <style>
-                                    .qd-social-icon img {
-                                        border-radius: 50% 50% 50% 50%;
-                                        width: 25px;
-                                        height: 25px;
-                                        float: left;
-                                    }
-
-                                    .qd-social-icon a {
-                                        display: inline-block;
-                                        margin-left: 20px;
-                                        width: 25px;
-                                        height: 25px;
-                                    }
-
-                                    .qd-social-icon a:first-of-type {
-                                        margin-left: 0px;
-                                    }
-
-                                    .qd-social-icon .social:hover {
-                                        opacity: 0.4;
-                                    }
-                                </style>
+                    <!-- For IMG src mapping icon -->
+                    <?php
+                    $social_icon = array(
+                        'facebook' => 'img/vn_facebook.png',
+                        'google' => 'img/vn_google.png',
+                        'twitter' => 'img/vn_twitter.png'
+                    );
+                    ?>
+                    <script>
+                        (function ($) {
+                            $(document).ready(function () {
                                 <?php
-                                $social_icon = array(
-                                    'facebook' => 'img/vn_facebook.png',
-                                    'google' => 'img/vn_google.png',
-                                    'twitter' => 'img/vn_twitter.png'
-                                );
+                                foreach($social_icon as $key=>$value):
                                 ?>
-                                <script>
-                                    (function ($) {
-                                        $(document).ready(function () {
-                                            <?php
-                                            foreach($social_icon as $key=>$value):
-                                            ?>
-                                            $('.qd-social-icon img.<?=$key?>').attr("src", "<?=$value?>");
-                                            <?php
-                                            endforeach;
-                                            ?>
-                                        });
-                                    })(jQuery);
-                                </script>
-                                <?php get_sidebar('footer-menu-4'); ?>
-                                <!--
-                                <a href="#"/>
-                                <img class="social" src="img/vn_twitter.png"/>
-                                </a>
-                                <a href="#"/>
-                                <img class="social" src="img/vn_facebook.png"/>
-                                </a> -->
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
+                                $('.social-icons-list img.<?=$key?>').attr("src", "<?=$value?>");
+                                <?php
+                                endforeach;
+                                ?>
+                            });
+                        })(jQuery);
+                    </script>
                 </div>
             </div>
             <!-- Part 6 Copyright Statement -->
@@ -583,24 +553,12 @@ class QdT_Layout_Root
                     <hr class="style-six"/>
                     <div class="qd-footer-nav" style="text-align: center; padding-top: 30px; padding-bottom: 30px">
                         <?php get_sidebar('footer-bottom'); ?>
-                        <!--
-                        <b>CÔNG TY TNHH MÁY PHÁT ĐIỆN THẢO NGUYÊN</b>
-                        <br>
-                        Trụ sở: 123 Lê Văn Sỹ, P.14, Quận Phú Nhuận, TP.HCM
-                        <br>
-                        Điện thoại: 123456789 - 098 900 9333
-                        <br>
-                        website: www.mayphatdienthaonguyen.com -->
                     </div>
 
                 </div>
             </div>
         </div>
         <!-- end footer -->
-        <?php wp_footer(); ?>
-        </body>
-        </html>
-
-    <?php
+        <?php
     }
 }

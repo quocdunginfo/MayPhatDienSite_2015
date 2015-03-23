@@ -1,10 +1,10 @@
 <?php
 
 /*
-Template Name: TrangChu
+Template Name: Trang chủ
 */
 QdT_Library::loadLayout('root');
-class QdT_PageT_TrangChu extends QdT_Layout_Root
+class QdT_PageT_HomePage extends QdT_Layout_Root
 {
     function __construct()
     {
@@ -20,7 +20,7 @@ class QdT_PageT_TrangChu extends QdT_Layout_Root
     {
         return '';
     }
-    protected function getContent()
+    protected function getContentPart()
     {
         ?>
         <!-- CONTENT -->
@@ -85,4 +85,4 @@ class QdT_PageT_TrangChu extends QdT_Layout_Root
     <?php
     }
 }
-(new QdT_PageT_TrangChu())->render();
+(new QdT_PageT_HomePage())->render();

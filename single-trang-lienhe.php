@@ -13,6 +13,12 @@ class QdCPT_TrangLienHe extends QdT_Layout_Root
 {
     private $obj = null;
 
+    protected function getPageTitle()
+    {
+        return parent::getPageTitle() . ' | Trang liên hệ';
+    }
+
+
     function __construct()
     {
         $this->loadScript();
@@ -38,7 +44,7 @@ class QdCPT_TrangLienHe extends QdT_Layout_Root
         return $this->obj->post_title;
     }
 
-    protected function getContent()
+    protected function getContentPart()
     {
         // Start the Loop.
         ?>
@@ -120,7 +126,7 @@ class QdCPT_TrangLienHe extends QdT_Layout_Root
                                             var json = form2js("contactForm", ".", false, null, true);
 
                                             console.log(json);
-                                            var ajax_loader = new ajaxLoader("#qd_contact_left");
+                                            //var ajax_loader = new ajaxLoader("#content");//quocdunginfo
 
                                             //show progress bar
                                             //...
@@ -140,7 +146,7 @@ class QdCPT_TrangLienHe extends QdT_Layout_Root
                                                 })
                                                 .always(function () {
                                                     //release lock
-                                                    ajax_loader.remove();
+                                                    //ajax_loader.remove();
                                                 });
                                         });
                                     });

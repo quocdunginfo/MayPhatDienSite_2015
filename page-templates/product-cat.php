@@ -10,6 +10,12 @@ if(isset($_GET['product-offset']))
 QdT_Library::loadLayout('root');
 class QdT_PageT_ProductCat extends QdT_Layout_Root {
     private $obj = null;
+
+    protected function getPageTitle()
+    {
+        return parent::getPageTitle().' | Product Cat';
+    }
+
     function __construct()
     {
         $this->obj = QdProductCat::first($_GET['id']);
@@ -22,7 +28,7 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
     {
         return $this->obj->name;
     }
-    protected function getContent()
+    protected function getContentPart()
     {
 
         ?>

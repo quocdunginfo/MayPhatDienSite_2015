@@ -10,6 +10,11 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
     private $obj = null;
     private $cached_customer = '{}';
 
+    protected function getPageTitle()
+    {
+        return parent::getPageTitle() . ' | Product Detail';
+    }
+
     function __construct()
     {
         $this->obj = QdProduct::first($_GET['id']);

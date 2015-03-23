@@ -20,7 +20,7 @@ class QdCPT_IntroductionLayout extends QdT_Layout_Root
     {
         return QdT_Library::getNotSetText();
     }
-    protected function getContent()
+    protected function getContentPart()
     {
             ?>
             <div class="container" id="qd_container_content" style="margin-top: 10px;">
