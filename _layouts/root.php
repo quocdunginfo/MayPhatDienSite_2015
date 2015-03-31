@@ -90,7 +90,19 @@ class QdT_Layout_Root
                 }
             </style>
             <!-- end hr tag -->
-
+            <!-- Image box for 3 modules -->
+            <style>
+                .qd-image-box {
+                    position: relative;
+                    border: solid 1px #CACACA;
+                }
+                .qd-image-box .qd-image-box-bg {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    background-color: white;
+                }
+            </style>
         </head>
 
         <body <?php body_class(); ?> style="background: rgba(0,0,0,0.1);">

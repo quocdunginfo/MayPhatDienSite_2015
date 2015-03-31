@@ -182,7 +182,7 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
     <?php
     }
 
-    public function getContent()
+    protected function getContentPart()
     {
         ?>
         <?= $this->dialog() ?>
@@ -194,22 +194,14 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                 <!-- PRODUCTS -->
                 <div class="col-xs-8 column" style="padding: 0">
                     <div class="row clearfix" id="qd_list_sanpham" style="margin-right: 5px">
-                        <style>
-                            .qd-image-box {
-                                width: 100%;
-                                height: 384px;
-                                position: relative;
-                                border: solid 1px #CACACA;
-                                margin-bottom: 25px;
-                            }
-
-                        </style>
-
                         <div class="col-xs-12 column">
-                            <div class="qd-image-box"
-                                 style="background: url(<?= $this->obj->avatar ?>); background-repeat: no-repeat;
-                                     background-size: contain;
-                                     background-position: center;">
+                            <div class="qd-image-box" style="width: 100%; height: 384px; margin-bottom: 25px;">
+                                <div class="qd-image-box-bg"></div>
+                                <div class="qd-image-box-bg"
+                                    style="background: url(<?= $this->obj->avatar ?>); background-repeat: no-repeat;
+                                         background-size: contain;
+                                         background-position: center;">
+                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 column" style="padding-bottom: 20px">
@@ -282,14 +274,24 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                             }
                         </style>
                         <ul style="padding-left: 20px; margin-bottom: 0px /*margin-top: -10px*/">
+                            <?php
+                            function render_obj_prop($obj, $prop_name, $caption)
+                            {
+                                if($obj->$prop_name!='') {
+                                    ?>
+                                    <li><?=$caption?>: <?= $obj->$prop_name ?></li>
+                                    <?php
+                                }
+                            }
+                            ?>
                             <!-- Alway active for 1st element -->
-                            <li>Model: <?= $this->obj->model ?></li>
-                            <li>Xuất xứ: <?= $this->obj->xuatxu ?></li>
-                            <li>Công suất: <?= $this->obj->congsuat ?></li>
-                            <li>Động cơ: <?= $this->obj->dongco ?></li>
-                            <li>Trọng lượng: <?= $this->obj->trongluong ?></li>
-                            <li>Bảo hành: <?= $this->obj->baohanh ?></li>
-                            <li>Nhóm SP: <?= $this->obj->_product_cat_name ?></li>
+                            <?=render_obj_prop($this->obj, 'model', 'Model')?>
+                            <?=render_obj_prop($this->obj, 'xuatxu', 'Xuất xứ')?>
+                            <?=render_obj_prop($this->obj, 'congsuat', 'Công suất')?>
+                            <?=render_obj_prop($this->obj, 'dongco', 'Động cơ')?>
+                            <?=render_obj_prop($this->obj, 'trongluong', 'Trọng lượng')?>
+                            <?=render_obj_prop($this->obj, 'baohanh', 'Bảo hành')?>
+                            <?=render_obj_prop($this->obj, '_product_cat_name', 'Nhóm SP')?>
                         </ul>
                     </div>
                     <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-top: 23px">ĐẶT HÀNG</a>

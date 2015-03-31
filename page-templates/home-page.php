@@ -35,6 +35,11 @@ class QdT_PageT_HomePage extends QdT_Layout_Root
                         border: solid 1px #CACACA;
                         margin-bottom: 65px;
                     }
+                    .qd-image-box .qd-image-box-bg {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                    }
 
                     .qd-left {
                         float: right;
@@ -64,12 +69,15 @@ class QdT_PageT_HomePage extends QdT_Layout_Root
                     ?>
                     <div class="col-xs-6 column">
                         <a href="<?= $item->getPermalink() ?>">
-                            <div class="qd-image-box <?= $count % 2 == 0 ? 'qd-left' : 'qd-right' ?>"
-                                 style="background: url(<?= $item->avatar ?>); background-repeat: no-repeat;
-                                     background-size: contain;
-                                     background-position: center;">
-                                <div class="qd-image-box-caption">
-                                    <?= $item->name ?>
+                            <div class="qd-image-box">
+                                <div class="qd-image-box-bg" style="background-color: white"></div>
+                                <div class="qd-image-box-bg <?= $count % 2 == 0 ? 'qd-left' : 'qd-right' ?>"
+                                     style="background: url(<?= $item->avatar ?>); background-repeat: no-repeat;
+                                         background-size: contain;
+                                         background-position: center;">
+                                    <div class="qd-image-box-caption">
+                                        <?= $item->name ?>
+                                    </div>
                                 </div>
                             </div>
                         </a>

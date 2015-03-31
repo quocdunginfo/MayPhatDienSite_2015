@@ -39,15 +39,6 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                 <div class="col-xs-9 column" style="">
                     <div class="row clearfix" id="qd_list_sanpham">
                         <style>
-                            .qd-image-box {
-                                width: 315px;
-                                height: 200px;
-                                position: relative;
-                                border: solid 1px #CACACA;
-                                margin-bottom: 30px;
-                                float: right;
-                            }
-
                             .qd-image-box .qd_xemchitiet {
                                 position: absolute;
                                 visibility: hidden;
@@ -77,7 +68,7 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
 
                             }
 
-                            .qd-image-box-caption {
+                            .qd-image-box .qd-image-box-caption {
                                 line-height: 40px;
                                 text-align: center;
                                 vertical-align: middle;
@@ -90,7 +81,7 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                                 color: white;
                                 font-size: 16px;
                             }
-                            .qd-image-box-caption a {
+                            .qd-image-box .qd-image-box-caption a {
                                 color: inherit;
                                 text-decoration: none;
                             }
