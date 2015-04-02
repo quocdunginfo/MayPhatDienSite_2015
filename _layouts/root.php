@@ -189,7 +189,7 @@ class QdT_Layout_Root
                                     });
                                     $('#qd-search-box').change(function() {
                                         $("#qd-search-icon").attr("src", search_array[1]);
-                                        $.get("http://localhost/mpd_2015/?qd-api=search/search_port&limit=7", {key_word: $("#qd-search-box").val()})
+                                        $.get("<?=QdT_Library::getDataPortPath('search/search_port')?>&limit=7", {key_word: $("#qd-search-box").val()})
                                             .done(function (data) {
 
                                                 //data JSON
