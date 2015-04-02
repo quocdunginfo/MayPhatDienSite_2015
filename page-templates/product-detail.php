@@ -10,6 +10,8 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
     private $obj = null;
     private $cached_customer = '{}';
 
+    private $product_setup_obj = null;
+
     protected function getPageTitle()
     {
         return parent::getPageTitle() . ' | Product Detail';
@@ -17,7 +19,8 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
 
     function __construct()
     {
-        $this->obj = QdProduct::first($_GET['id']);
+        $this->obj = QdProduct::GET($_GET['id']);
+        $this->product_setup_obj = QdProductSetup::GET();
         $this->loadScript();
 
         if (isset($_COOKIE['customer_json'])) {
@@ -297,7 +300,7 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                     <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-top: 23px">ĐẶT HÀNG</a>
                     <button class="btn btn-primary"
                             style="margin-top: 23px; color: #000000; border: solid 1px #000000; background-color: white; font-weight: normal">
-                        TƯ VẤN 097 999 6 234
+                        <?=$this->product_setup_obj->advice_phone?>
                     </button>
                 </div>
                 <!-- END PRODUCT CATEGORIES -->
