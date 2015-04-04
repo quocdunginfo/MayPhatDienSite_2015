@@ -158,6 +158,14 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                                             //data JSON
                                             console.log(data);
                                             //var obj = data;//"ok";//jQuery.parseJSON( data );//may throw error if data aldreay JSON format
+                                            for(i=0;i<data.msg.length;i++)
+                                            {
+                                                if(data.msg[i].type=='error')
+                                                {
+                                                    alert(data.msg[i].msg);
+                                                    return;
+                                                }
+                                            }
                                             $('#qdmsgbox').css("display", "block");
                                             //auto close after 2 second
                                             setTimeout(function () {

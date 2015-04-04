@@ -95,6 +95,7 @@ class QdT_Layout_Root
                 .qd-image-box {
                     position: relative;
                     border: solid 1px #CACACA;
+                    cursor: pointer;
                 }
                 .qd-image-box .qd-image-box-bg {
                     width: 100%;
@@ -399,6 +400,7 @@ class QdT_Layout_Root
                         .breadcrumb li a {
                             color: inherit;
                             text-decoration: none;
+                            text-transform: lowercase;
                         }
 
                         .breadcrumb > li.active, li {
