@@ -11,7 +11,7 @@ $products_segment = $obj->getProductsSegment($item_per_segment, $_GET['product-o
 foreach ($products_segment as $item):
     ?>
     <div class="col-xs-6 column">
-        <div class="qd-image-box" style="margin-bottom: 30px; width: 315px; height: 200px;">
+        <div class="qd-image-box" style="margin-bottom: 10px; width: 315px; height: 200px;">
             <div class="qd-image-box-bg"></div>
             <div class="qd-image-box-bg" style="background: url(<?= $item->avatar ?>); background-repeat: no-repeat;
                 background-size: contain;
@@ -24,8 +24,9 @@ foreach ($products_segment as $item):
                         TIẾT</a>
                 </div>
             </div>
-        </div>
 
+        </div>
+        <div class="qd-item-price"><?=number_format($item->price, 0, '', '.')?> VND</div>
     </div>
 
 <?php

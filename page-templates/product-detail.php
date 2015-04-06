@@ -241,8 +241,9 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
 
                         #qd_nav_danhmuc ul li {
                             list-style: none;
-                            line-height: 16px;
+                            line-height: 18px;
                             margin-top: 12px;
+                            font-size: 14px;
                         }
 
                         #qd_nav_danhmuc ul li.active {
@@ -291,7 +292,8 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                             <?=render_obj_prop($this->obj, 'dongco', 'Động cơ')?>
                             <?=render_obj_prop($this->obj, 'trongluong', 'Trọng lượng')?>
                             <?=render_obj_prop($this->obj, 'baohanh', 'Bảo hành')?>
-                            <?=render_obj_prop($this->obj, '_product_cat_name', 'Nhóm SP')?>
+                            <?php /*render_obj_prop($this->obj, '_product_cat_name', 'Nhóm SP')*/?>
+                            <li style="font-weight: bold; font-size: 16px">Giá: <?=number_format($this->obj->price, 0, '', '.');?> VND</li>
                         </ul>
                     </div>
                     <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-top: 23px">ĐẶT HÀNG</a>

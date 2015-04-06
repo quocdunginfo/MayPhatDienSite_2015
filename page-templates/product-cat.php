@@ -2,32 +2,36 @@
 /*
 Template Name: Loại sản phẩm
 */
-if(isset($_GET['product-offset']))
-{
+if (isset($_GET['product-offset'])) {
     QdT_Library::loadPageT('product-cat-loadmore');
     exit(0);
 }
 QdT_Library::loadLayout('root');
-class QdT_PageT_ProductCat extends QdT_Layout_Root {
+
+class QdT_PageT_ProductCat extends QdT_Layout_Root
+{
     private $obj = null;
 
     protected function getPageTitle()
     {
-        return parent::getPageTitle().' | Product Cat';
+        return parent::getPageTitle() . ' | Product Cat';
     }
 
     function __construct()
     {
         $this->obj = QdProductCat::first($_GET['id']);
     }
+
     protected function getBreadcrumbs()
     {
         return array_merge(parent::getBreadcrumbs(), $this->obj->getBreadcrumbs());
     }
+
     protected function getContentTitle()
     {
         return $this->obj->name;
     }
+
     protected function getContentPart()
     {
 
@@ -36,7 +40,7 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
         <div class="container" id="qd_container_content" style="margin-top: 10px">
             <div class="row clearfix">
                 <!-- PRODUCTS -->
-                <div class="col-xs-9 column" style="">
+                <div class="col-xs-9 column" style="margin-left: -15px"><!-- fix bootstrap margin left-->
                     <div class="row clearfix" id="qd_list_sanpham">
                         <style>
                             .qd-image-box .qd_xemchitiet {
@@ -47,6 +51,13 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                                 width: 100%;
                                 background-color: rgba(255, 255, 255, 0.6);
                                 transition: visibility 0.3s linear, opacity 0.3s linear;
+                            }
+
+                            .qd-item-price {
+                                font-size: 18px;
+                                font-weight: bold;
+                                text-align: center;
+                                margin-bottom: 25px;
                             }
 
                             .qd-image-box:hover .qd_xemchitiet {
@@ -81,6 +92,7 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                                 color: white;
                                 font-size: 16px;
                             }
+
                             .qd-image-box .qd-image-box-caption a {
                                 color: inherit;
                                 text-decoration: none;
@@ -123,16 +135,17 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                             color: inherit;
                             text-decoration: none;
                         }
+
                         #qd_nav_danhmuc h1,
                         #qd_nav_danhmuc h2,
                         #qd_nav_danhmuc h3,
                         #qd_nav_danhmuc h4,
-                        #qd_nav_danhmuc h5
-                        {
+                        #qd_nav_danhmuc h5 {
                             font-size: inherit;
                             font-weight: bold;
                             padding-left: 15px;
                         }
+
                         #qd_nav_danhmuc a:hover {
                             text-decoration: underline;
                         }
@@ -147,10 +160,11 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
                         }
 
                     </style>
-                    <div style="/*border: solid 1px #ffffff;*/ border-left: solid 1px #d8d8d8;"><!-- css of border-top very important -->
+                    <div style="/*border: solid 1px #ffffff;*/ border-left: solid 1px #d8d8d8;">
+                        <!-- css of border-top very important -->
                         <ul style="margin-top: -10px">
                             <!-- Alway active for 1st element -->
-                            <?=get_sidebar('right-menu-productcat')?>
+                            <?= get_sidebar('right-menu-productcat') ?>
                             <!--
                             <li class="active">DANH MỤC SẢN PHẨM</li>
                             <li class="active"><a href="#">Máy phát điện</a></li>
@@ -169,4 +183,5 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root {
     <?php
     }
 }
+
 (new QdT_PageT_ProductCat())->render();
