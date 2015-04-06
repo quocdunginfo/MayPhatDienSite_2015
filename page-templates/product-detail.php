@@ -304,7 +304,7 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
                             <?=render_obj_prop($this->obj, 'trongluong', 'Trọng lượng')?>
                             <?=render_obj_prop($this->obj, 'baohanh', 'Bảo hành')?>
                             <?php /*render_obj_prop($this->obj, '_product_cat_name', 'Nhóm SP')*/?>
-                            <li style="font-weight: bold; font-size: 16px">Giá: <?=number_format($this->obj->price, 0, '', '.');?> VND</li>
+                            <li style="color: #404040; font-weight: bold; font-size: 16px">Giá: <?=number_format($this->obj->price, 0, '', '.');?> VND</li>
                         </ul>
                     </div>
                     <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-top: 23px">ĐẶT HÀNG</a>

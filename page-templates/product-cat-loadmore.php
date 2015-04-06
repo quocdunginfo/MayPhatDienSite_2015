@@ -30,7 +30,7 @@ foreach ($products_segment as $item):
                     </div>
                 </div>
             </div>
-        <div class="qd-item-price"><a target="_blank" href="<?=$link?>" style="text-decoration: none; color: inherit"><?=number_format($item->price, 0, '', '.')?> VND</a></div>
+        <div class="qd-item-price"><a target="_blank" href="<?=$link?>" style="text-decoration: none; color: #404040"><?=number_format($item->price, 0, '', '.')?> VND</a></div>
     </div>
 
 <?php
