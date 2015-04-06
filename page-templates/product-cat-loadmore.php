@@ -9,24 +9,28 @@ $obj = QdProductCat::first($_GET['id']);
 $item_per_segment = 6;
 $products_segment = $obj->getProductsSegment($item_per_segment, $_GET['product-offset']);
 foreach ($products_segment as $item):
+    $link = $item->getPermalink();
     ?>
     <div class="col-xs-6 column">
-        <div class="qd-image-box" style="margin-bottom: 10px; width: 315px; height: 200px;">
-            <div class="qd-image-box-bg"></div>
-            <div class="qd-image-box-bg" style="background: url(<?= $item->avatar ?>); background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;">
-                <div class="qd-image-box-caption">
-                    <a href="<?= $item->getPermalink() ?>"><?= $item->name ?></a>
-                </div>
-                <div class="qd_xemchitiet">
-                    <a href="<?= $item->getPermalink() ?>" target="_blank" type="button" class="btn btn-default">XEM CHI
-                        TIẾT</a>
+
+            <div class="qd-image-box" style="margin-bottom: 10px; width: 315px; height: 200px;" onclick="window.open('<?=$link?>','_blank')">
+                <div class="qd-image-box-bg"></div>
+                <div class="qd-image-box-bg" style="background: url(<?= $item->avatar ?>); background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;">
+
+                    <div class="qd-image-box-caption">
+                        <?= $item->name ?>
+                    </div>
+
+                    <div class="qd_xemchitiet">
+                        <a href="<?=QdT_Library::getNoneLink()?>" type="button" class="btn btn-default">
+                            XEM CHI TIẾT
+                        </a>
+                    </div>
                 </div>
             </div>
-
-        </div>
-        <div class="qd-item-price"><?=number_format($item->price, 0, '', '.')?> VND</div>
+        <div class="qd-item-price"><a target="_blank" href="<?=$link?>" style="text-decoration: none; color: inherit"><?=number_format($item->price, 0, '', '.')?> VND</a></div>
     </div>
 
 <?php
