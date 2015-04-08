@@ -30,8 +30,8 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
 
     protected function loadScript()
     {
-        QdJqwidgets::loadJS("form2js.js");
-        QdJqwidgets::loadJS("ajax-loader.js");
+        QdJqwidgets::loadSinglePluginJS("form2js.js");
+        QdJqwidgets::loadSinglePluginJS("ajax-loader.js");
     }
 
     protected function getBreadcrumbs()

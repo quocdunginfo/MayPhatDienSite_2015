@@ -36,8 +36,8 @@ class QdCPT_TrangLienHe extends QdT_Layout_Root
     }
     protected function loadScript()
     {
-        QdJqwidgets::loadJS("form2js.js");
-        QdJqwidgets::loadJS("ajax-loader.js");
+        QdJqwidgets::loadSinglePluginJS("form2js.js");
+        QdJqwidgets::loadSinglePluginJS("ajax-loader.js");
     }
     protected function getContentTitle()
     {
