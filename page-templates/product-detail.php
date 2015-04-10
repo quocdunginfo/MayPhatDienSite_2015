@@ -19,7 +19,9 @@ class QdT_PageT_ProductDetail extends QdT_Layout_Root
 
     function __construct()
     {
-        $this->obj = QdProduct::GET($_GET['id']);
+        $id = get_query_var( 'id', 0);
+        //$this->obj = QdProduct::GET($_GET['id']);
+        $this->obj = QdProduct::GET($id);
         $this->product_setup_obj = QdProductSetup::GET();
         $this->loadScript();
 

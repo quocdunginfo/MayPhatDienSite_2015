@@ -116,11 +116,17 @@ add_action( 'widgets_init', 'mpd2015_widgets_init' );
 
 require_once('_helpers/index.php');
 
-//SET COOKIE
-function set_newuser_cookie() {
-    if ( !is_admin() && !isset($_COOKIE['customer_json'])) {
-
-        setcookie('customer_json', 1, time()+3600*24*100, COOKIEPATH, COOKIE_DOMAIN, false);
-    }
+//Register all query var here - DO NOT use $_GET[var_name]
+function qd_register_query_vars($vars) {
+    $vars[] = "id";
+    return $vars;
 }
-add_action( 'init', 'set_newuser_cookie');
+add_filter( 'query_vars', 'qd_register_query_vars');
+
+//Register rewrite tag
+
+//Register all query var here - DO NOT use $_GET[var_name]
+function qd_register_url_rewrite_tag($vars) {
+    add_rewrite_tag('%id%','([^&]+)');
+}
+add_action( 'init', 'qd_register_url_rewrite_tag');
