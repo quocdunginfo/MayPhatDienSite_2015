@@ -170,4 +170,5 @@ class QdCPT_TrangLienHe extends QdT_Layout_Root
     }
 }
 
-(new QdCPT_TrangLienHe())->render();
+$obj = new QdCPT_TrangLienHe();
+$obj->render();

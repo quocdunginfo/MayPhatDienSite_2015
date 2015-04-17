@@ -186,4 +186,5 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root
     }
 }
 
-(new QdT_PageT_ProductCat())->render();
+$obj = new QdT_PageT_ProductCat();
+$obj->render();

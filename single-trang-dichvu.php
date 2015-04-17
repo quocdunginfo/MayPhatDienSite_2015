@@ -38,4 +38,5 @@ class QdT_TrangDichVu extends QdCPT_IntroductionLayout{
         return $this->obj->post_title;
     }
 }
-(new QdT_TrangDichVu())->render();
+$obj = new QdT_TrangDichVu();
+$obj->render();

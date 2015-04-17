@@ -6,4 +6,5 @@ class QdT_TrangIndex extends QdT_Layout_Root {
 
     }
 }
-(new QdT_TrangIndex())->render();
+$obj = new QdT_TrangIndex();
+$obj->render();

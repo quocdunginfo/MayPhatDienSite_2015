@@ -93,4 +93,5 @@ class QdT_PageT_HomePage extends QdT_Layout_Root
     <?php
     }
 }
-(new QdT_PageT_HomePage())->render();
+$obj = new QdT_PageT_HomePage();
+$obj->render();

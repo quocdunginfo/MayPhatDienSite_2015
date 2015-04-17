@@ -39,4 +39,5 @@ class QdCPT_TrangGioiThieu extends QdCPT_IntroductionLayout
     }
 
 }
-(new QdCPT_TrangGioiThieu())->render();
+$obj = new QdCPT_TrangGioiThieu();
+$obj->render();

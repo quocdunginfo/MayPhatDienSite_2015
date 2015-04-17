@@ -41,4 +41,5 @@ class QdT_TrangTuyenDung extends QdCPT_IntroductionLayout
         get_sidebar('right-menu-tuyendung');
     }
 }
-(new QdT_TrangTuyenDung())->render();
+$obj = new QdT_TrangTuyenDung();
+$obj->render();
