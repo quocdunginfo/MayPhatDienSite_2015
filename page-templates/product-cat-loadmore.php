@@ -6,7 +6,7 @@
  * Time: 10:29 PM
  */
 $id = get_query_var( 'id', 0);
-$obj = QdProductCat::first($id);
+$obj = QdProductCat::GET($id);
 $item_per_segment = 6;
 $products_segment = $obj->getProductsSegment($item_per_segment, $_GET['product-offset']);
 foreach ($products_segment as $item):

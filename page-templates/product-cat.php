@@ -20,8 +20,8 @@ class QdT_PageT_ProductCat extends QdT_Layout_Root
     function __construct()
     {
         $id = get_query_var( 'id', 0);
-        //$this->obj = QdProductCat::first($_GET['id']);
-        $this->obj = QdProductCat::first($id);
+        //$this->obj = QdProductCat::GET($_GET['id']);
+        $this->obj = QdProductCat::GET($id);
     }
 
     protected function getBreadcrumbs()
